@@ -1,0 +1,209 @@
+/*Encabezado*/
+.cabecera{
+    background-image: url(/Categorias/GAMER/imagenes/gamer.png); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+ 
+ }
+ 
+ .navbar-toggler{
+     background-color: white;
+ }
+ .offcanvas-body .nav-link {
+     color: white;
+ }
+ .offcanvas-body .nav-link.active {
+     color: rgb(13, 193, 121);
+ }
+ 
+ .offcanvas-body .nav-link:hover {
+     color: orange
+ }
+ .btn{
+  background: rgb(13, 193, 121);
+  margin-top: 10px;
+}
+ .btn:hover{
+     background: rgb(236, 186, 94);
+     color: black;
+ }
+ .contenido-texto{
+ max-width: 1000px;
+ padding: 120px;
+ text-align: center;
+ color: rgb(255, 255, 255);
+ }
+
+
+
+  /*Carousel*/
+  
+  .carousel{
+    padding: 50px 50px;
+  }
+  
+   .carousel-item img {
+    width: 100%;
+    height: 640px; 
+    object-fit: cover;
+    border-radius: 20px;
+}
+.carousel-caption {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.219);
+
+    
+}
+
+.carousel-caption h5 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    
+
+}
+.carousel-caption p {
+    font-size: 1.2rem;
+    color: white;
+    
+
+}
+.btn-custom {
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+.btn-yellow {
+    background-color: #ffc107;
+    border: none;
+    color: black;
+}
+.btn-gray {
+    background-color: #6c757d;
+    border: none;
+    color: white;
+}
+
+
+/*Mas Noticias*/
+.col-lg-4{
+  padding: 10px;
+}
+
+.carta {
+  position: relative;
+  color: white;
+  border-radius: 10px;
+  height: 100%;
+}
+
+.carta .clave {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+
+.texto-carta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+}
+
+.categoria {
+  background: black;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.titulo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+
+.logito {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 120px;
+  background-color: rgba(255, 255, 255); 
+  padding: 5px; 
+  border-radius: 8px; 
+}
+    
+
+ /*Footer*/
+ footer {
+  padding: 20px;
+  background: linear-gradient(to right, #406318, #2D0064);
+}
+
+.footer-logo {
+  min-height: 120px;
+  width: 200px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+.barra {
+width: 2px; 
+height: 100px; 
+margin: 10px;
+background-color: black; 
+}
+
+.footer-texto {
+  font-size: 1.5rem;
+  padding: 20px;
+  margin-bottom: 30px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+  
+.iconos-redes-sociales a {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  margin: 10px;
+  border: 2px solid white;
+  border-radius: 50%;
+  transition: all 0.2s ease-in;
+}
+
+.iconos-redes-sociales a:hover {
+  background-color: white;
+  border: 2px solid rgb(13, 110, 253);
+}
+
+.iconos-redes-sociales i {
+  color: white;
+  font-size: 24px;
+  transition: all 0.2s ease-in;
+}
+
+.iconos-redes-sociales a:hover i {
+  color: black;
+}

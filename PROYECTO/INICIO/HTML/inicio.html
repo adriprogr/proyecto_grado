@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="/INICIO/estilos/style.css">
+    <link rel="stylesheet" href="/INICIO/estilos/movil.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+</head>
+<body>
+    <div class="cabecera"> <!--Contenedor que inclute el fondo del header y que contendra toda la estructura del header con sus elementos-->
+        <!-- Barra de navegacion-->
+        <nav class="navbar navbar-expand-md "> <!--Empiezo a definir el header diciendo que se va a expandir hasta los dispositivos medianos-->
+            <div class="container-fluid d-flex justify-content-between align-items-center"> <!--Contenedor donde se ajojara todo el contenido. Estos tienen estilos de bootstrap aplicando un display flex donde el contenido estara separado entre ellos-->
+              <!-- Logo -->
+                <a href="#">
+                    <img class="logo" src="/INICIO/imagenes/Logo.png" width="160px">
+                </a>
+                <!-- Menu que se activa cuando llege a su limite. Aqui especifico el boton que sera de tipo offcanvas(diseño de bootstrap) para abrir el panel lateral -->
+                <button class="navbar-toggler btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span> <!--Defino como va a ser el logo. En este caso sera un icono con tres rayas laterales(icono de bootstrap)-->
+                </button>
+             <!-- Aqui especifico donde se va a ubicar el menu lateral(El icono) que sera en el final de la pagina(es decir, derecha). A su vez detallare que cosas se alojara dentro del mismo-->
+                <div class="offcanvas offcanvas-end" id="offcanvasNavbar">
+                    <!--Aqui detallamos la cabecera del menu offcanvas. En la cabecera tendra una imagen con el logo de la pagina que corresponda(puesto que habra varios logos) y un boton para cerrar dicho menu-->
+                    <div class="offcanvas-header">
+                        <img class="img-fluid" src="/INICIO/imagenes/Logo.png" width="200px">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                      <!--Al igual que detalle antes la cabeza del header hare lo mismo con el body. Este contendra 4 enlaces(De momento) y 1 boton que me redirigira automaticamente al apartado de mas informacion sobre la web-->
+                    <div class="offcanvas-body text-center">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 3">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Incio</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Noticias</a>
+                            </li>
+                        
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Comentarios</a>
+                            </li>
+                        
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Inicio Sesion/Registrate</a>
+                            </li>  
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class=" contenido-texto container-fluid">
+            <h1>¡Bienvenidos a Portal de Noticias, el rincón donde la información nunca duerme! </h1>
+             <p>¡Bienvenidos a Portal de Noticias. Prepárate para sumergirte en un mundo de multiples tipos de eventos emocionantes y noticias frescas que te mantendrán al borde del asiento. Ademas, tu podras ser parte de estas noticias ¿Quieres descubir como?</p>    
+             <button type="button" class="btn btn-lg">¡Echar un vistazo!</button>
+        </div>
+    </div>
+
+    <!--Quienes somos-->
+    <section class="contenedor container-fluid text-center"> <!--El contenedor ocupara todo el ancho de la pagina disponible. A la vez el texto estara alineado en el centro-->
+        <div class="row"><!--Contenedor que especifica una fila-->
+            <div class="col-lg-6"> <!--Contenedor que especifica una columna en las que en dispositivos mayores o igual a 9-->
+                <h1>¿A que nos dedicamos?</h1>
+                <div class="texto-body">
+                    <p>Nuestra pagina se dedica a traer toda la informacion que vaya ocurriendo en el dia a dia de una forma directa, original y con un toque fresco para todo el público.</p>
+                    <p>Nuestro objetivo es mantener a la audiencia no solo informada, sino también entretenida, haciendo que cada visita sea una experiencia única y divertida. Aunque también mantendremos la seriedad y el profesionalismo en las noticias más duras e importantes.</p>
+                    <p>Os estaréis preguntando ¿Y qué tipos de noticias trataremos? Pues dale click al botón y descubre en qué te puedes sumergir.</p>
+                    <button type="button" class="btn btn-lg">¡Cuenteme mas!</button>
+                </div>
+            </div>
+            <div class="imagenes d-flex flex-column col-lg-6" >
+                <img class="img-fluid" src="/Inicio/imagenes/Definitiva.png" width="400x" alt="">
+                <img class="imagen_clave img-fluid" src="/Inicio/imagenes/Segunda.png" width="370px" height="200px" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!--Categorias-->
+    <section class="contenedor container-fluid text-center">
+        <h1> Categorias </h1>
+        <div class="texto-body-2">
+            <p>Si has llegado hasta aqui es por que la intriga te puede. A continuacion, presentamos las categorias de noticias en las que podras navegar en nuestro portal.</p>
+            <p>Haz click en cada boton para saber que temas se trataran en cada portal</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="carta">
+                    <img class="clave" src="../imagenes/corazon.jpg" alt="Imagen de artículo">
+                    <img class="logito" src="../imagenes/logo2.png"  alt="Logo del portafolio">
+                    <button class="btn btn-primary disposicion"  data-bs-target="#modal1" data-bs-toggle="modal" >PORTAL CORAZON</button>
+                </div>
+            </div>
+            <div class="modal fade" id="modal1"> <!--Abrimos la etiqueta modal-->
+                <div class="modal-dialog modal-dialog-centered"> <!--Especificamos el entorno de la modal-->
+                    <div class="modal-content"> <!--Contenido de la modal-->
+                        <div class="modal-header"> <!--Cabecera de la modal-->
+                        <img src="/Inicio/imagenes/Logo2.png" class="img-fluid" width="120px" alt="">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body"><!--Cuerpo de la modal-->
+                        </h3>Este es el portal de informativos, donde publicaremos las noticias mas importantes contadas con seriedad y toda la informacion necesaria. Los temas que encontraras son los siguientes:  </h3>
+                        <br><br>
+                        <ul class="d-flex align-items-center flex-column">
+                            <li>Politica</li>
+                            <li>Actualidad</li>
+                            <li>Economia</li>
+                            <li>Deportes</li>
+                        </ul>
+                        </div>
+                        <div class="modal-footer"><!--Pie de pagina de la modal-->
+                            <button type="button" class="cerrar" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="carta">
+                    <img class="clave" src="../imagenes/Informativos.jpg" alt="Imagen de artículo">
+                    <img class="logito" src="../imagenes/logo3.png"  alt="Logo del portafolio">
+                    <button class="btn btn-primary disposicion"  data-bs-target="#modal2" data-bs-toggle="modal" >PORTAL INFORMATIVO</button>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modal2">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <img src="/Inicio/imagenes/logo3.png" class="img-fluid" width="120px" alt="">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            </h3>Este es el portal de informativos, donde publicaremos las noticias mas importantes contadas con seriedad y toda la informacion necesaria. Los temas que encontraras son los siguientes:  </h3>
+                            <br><br>
+                            <ul class="d-flex align-items-center flex-column">
+                                <li>Politica</li>
+                                <li>Actualidad</li>
+                                <li>Economia</li>
+                                <li>Deportes</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="cerrar" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-4">
+                <div class="carta">
+                    <img class="clave" src="../imagenes/Delicias.jpg" alt="Imagen de artículo">
+                    <img class="logito" src="../imagenes/logo4.png"  alt="Logo del portafolio">
+                    <button class="btn btn-primary disposicion"  data-bs-target="#modal3" data-bs-toggle="modal" >PORTAL DELICIAS</button>
+                </div>
+            </div>
+
+                
+            <div class="modal fade" id="modal3">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <img src="/Inicio/imagenes/logo4.png" class="img-fluid" width="120px" alt="">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            </h3>Este es el portal de informativos, donde publicaremos las noticias mas importantes contadas con seriedad y toda la informacion necesaria. Los temas que encontraras son los siguientes:  </h3>
+                            <br><br>
+                            <ul class="d-flex align-items-center flex-column">
+                                <li>Politica</li>
+                                <li>Actualidad</li>
+                                <li>Economia</li>
+                                <li>Deportes</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="cerrar" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="carta">
+                    <img class="clave" src="../imagenes/Gamer.jpg" alt="Imagen de artículo">
+                    <img class="logito" src="../imagenes/logo5.png"  alt="Logo del portafolio">
+                    <button class="btn btn-primary disposicion"  data-bs-target="#modal4" data-bs-toggle="modal" >PORTAL GAMING</button>
+                </div>
+            </div>
+            
+            <div class="modal fade" id="modal4">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <img src="/Inicio/imagenes/Logo5.png" class="img-fluid" width="120px" alt="">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                    <div class="modal-body">
+                        </h3>Este es el portal de informativos, donde publicaremos las noticias mas importantes contadas con seriedad y toda la informacion necesaria. Los temas que encontraras son los siguientes:  </h3>
+                        <br><br>
+                        <ul class="d-flex align-items-center flex-column">
+                            <li>Politica</li>
+                            <li>Actualidad</li>
+                            <li>Economia</li>
+                            <li>Deportes</li>
+                        </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="cerrar" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-lg-6">
+                <div class="carta">
+                    <img class="clave" src="../imagenes/Comunidad.jpg" alt="Imagen de artículo">
+                    <img class="logito" src="../imagenes/logo6.png"  alt="Logo del portafolio">
+                    <button class="btn btn-primary disposicion"  data-bs-target="#modal5" data-bs-toggle="modal" >PORTAL ÉLITE</button>
+                </div>
+            </div>
+        
+            <div class="modal fade" id="modal5">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <img src="/Inicio/imagenes/logo6.png" class="img-fluid" width="120px" alt="">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        </h3>Este es el portal de informativos, donde publicaremos las noticias mas importantes contadas con seriedad y toda la informacion necesaria. Los temas que encontraras son los siguientes:  </h3>
+                        <br><br>
+                        <ul class="d-flex align-items-center flex-column">
+                            <li>Politica</li>
+                            <li>Actualidad</li>
+                            <li>Economia</li>
+                            <li>Deportes</li>
+                        </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="cerrar" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="d-flex align-items-center justify-content-center flex-column"> 
+        <img src="/Inicio/imagenes/Logo.png" class="footer-logo img-fluid" width="120px" alt="">
+        <div class="iconos-redes-sociales d-flex flex-wrap align-items-center justify-content-center">
+        <a href="https://twitter.com/" target="_blank" rel="">
+            <i class="bi bi-twitter"></i>
+        </a>
+        <a href="https://github.com/" target="_blank" rel="">
+            <i class="bi bi-github"></i>
+        </a>
+        
+        <a href="https://www.instagram.com/" target="_blank" rel="">
+            <i class="bi bi-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com" target="_blank" rel="">
+            <i class="bi bi-facebook"></i>
+        </a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
