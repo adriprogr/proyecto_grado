@@ -1,0 +1,238 @@
+body {
+    overflow-x: hidden;
+}
+
+.fondo {
+  background: linear-gradient(-45deg,#fcf1d5,  #d6f5fa, #fcd3e8,  #efd6f2);
+  background-size: 400% 400%;
+  animation: fondo 20s ease infinite;
+  position: relative;
+}
+@keyframes fondo {
+  0% {
+     background-position: 0% 50%; 
+    }
+  50% {
+     background-position: 100% 50%; 
+    }
+  100% {
+     background-position: 0% 50%; 
+    }
+}
+
+.caja-logo {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.categorias {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.signo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #29f77b;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    font-size: 20px;
+    transition: 0.5s ease;
+}
+
+.signo:hover {
+    background: #f7ac43;
+}
+
+.cuadrado{
+    position: absolute;
+    content: '';
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    animation: flotar 1s ease infinite;
+}
+
+@keyframes flotar{
+    0%{
+        transform: translateY(0);
+    } 50%{
+        transform: translateY(10px);
+    } 100%{
+        transform: translateY(0);
+    }
+}
+
+.uno{
+    top: 15%;
+    left: 10%;
+    background: rgba(168, 13, 59, 0.334);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.dos{
+    top: 30%;
+    right: 10%;
+    background: rgba(39, 49, 195, 0.334);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+}
+.tres{
+    top: 45%;
+    left: 10%;
+    background: rgba(195, 166, 39, 0.334);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.cuatro{
+    top: 60%;
+    right: 10%;
+    background: rgba(146, 39, 195, 0.334);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.cinco{
+    top: 75%;
+    left: 10%;
+    background: rgba(149, 117, 84, 0.334);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.seis{
+    top: 80%;
+    right: 10%;
+}
+.formulario2{
+    background: #f8f9fa;
+}
+
+.sesion{
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: white;
+}
+
+.input-group-text {
+    border-radius: 10px 0 0 10px;
+    transition: all 0.3s ease;
+}
+
+.input-group .form-control {
+    border-radius: 10px
+}
+
+.form-control {
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+    border-color: #0d6efd;
+}
+
+
+.login-btn {
+    background: #0d6efd;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.login-btn:hover {
+    background: #0b5ed7;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3);
+}
+
+.divider {
+    position: relative;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #dee2e6;
+    z-index: 0;
+}
+
+.divider span {
+    position: relative;
+    background: white;
+    padding: 0 20px;
+    z-index: 1;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.facebook {
+    background: #1877F2;
+    color: white;
+}
+
+.twitter {
+    background: #1DA1F2;
+    color: white;
+}
+
+.google {
+    background: #DB4437;
+    color: white;
+}
+
+.instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    color: white;
+}
+
+
+
+
+
+

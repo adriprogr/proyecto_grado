@@ -1,0 +1,64 @@
+@media screen and (max-width: 767.9px) {
+    .offcanvas{
+        min-width: 400px;
+    }
+    .offcanvas-header img{
+        margin-left: 88px;
+    }
+
+    .offcanvas-body .nav-link {
+        color: black;
+    }
+  }
+
+@media screen and (max-width: 560px) {
+    body{
+        min-width: 300px;
+    }
+    .contenido-texto {
+        padding:40px 60px;
+    }
+}
+
+/*¿Quienes Somos?*/
+
+@media screen and (max-width: 771px) {
+    .contenedor::after, 
+    .contenedor::before{
+        width: 150px;
+        height: 150px;
+    }
+  }
+
+  @media screen and (max-width: 992px){
+    .imagenes{
+        align-items: center;
+
+    }
+    .imagenes img{
+        width: 450px;
+    }
+    .imagen_clave{
+        margin-left: 0px;
+
+    }
+    
+}
+
+/*Categorias*/
+
+@media screen and (max-width: 992px){
+    .categorias img{   
+        width: 450px;
+        height: 300px;
+        padding: 10px;
+    }
+
+    .modal-header img{
+        width: 120px;
+    }
+
+}
+
+
+
