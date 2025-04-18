@@ -144,7 +144,7 @@ h1 {
 
 .footer {
   padding: 20px;
-  background: linear-gradient(to left, #550086, #234D1C);
+  background: linear-gradient(to left, #3f321d, #20451a);
   background-size: 400% 400%;
   animation: fondo 10s ease infinite;
   position: relative;
