@@ -2,7 +2,7 @@ body{
   background-color: #f5f5f5;
 }
 .cabecera {
-  background: linear-gradient(to left,  #f5be46, #e5ffd8);
+  background: linear-gradient(to left,  #f8d486, #cff7bc);
   background-size: 400% 400%;
   animation: fondo 10s ease infinite;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
