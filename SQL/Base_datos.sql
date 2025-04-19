@@ -1,6 +1,8 @@
+drop database if exists portal_noticias;
+
 create database portal_noticias;
 
-use portal_noticias
+use portal_noticias;
 
 Create table roles (
     id_rol int PRIMARY KEY AUTO_INCREMENT,
@@ -13,17 +15,6 @@ Create table usuarios (
     contraseña varchar(50),
     id_rol int,
     foreign key(id_rol) REFERENCES roles(id_rol)
-);
-
-
-
-Create table comentarios(
-	id_comentarios int primary key AUTO_INCREMENT,
-   	comentario text,
-    id_categoria int,
-    id_usuario int, 
-    foreign key(id_categoria) REFERENCES categorias(id_categoria),
-    foreign key(id_usuario) REFERENCES usuarios(id_usuario)
 );
 
 Create table categorias (
@@ -56,3 +47,18 @@ Create table noticias(
     id_titular int,
     foreign key(id_titular) REFERENCES titulares (id_titular)
 );
+
+
+
+Create table comentarios(
+	id_comentarios int primary key AUTO_INCREMENT,
+   	comentario text,
+    id_categoria int,
+    id_usuario int, 
+    foreign key(id_categoria) REFERENCES categorias(id_categoria),
+    foreign key(id_usuario) REFERENCES usuarios(id_usuario)
+);
+
+
+
+
