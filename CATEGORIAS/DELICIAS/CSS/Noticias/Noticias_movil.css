@@ -10,9 +10,9 @@
 
 
 @media (max-width: 613px) {
-.logo {
-  width: 220px; 
-}
+  .logo {
+    width: 220px; 
+  }
 }
 
 @media (max-width: 630px) {

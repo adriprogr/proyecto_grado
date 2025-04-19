@@ -10,15 +10,15 @@
 
 
 @media (max-width: 613px) {
-.logo {
-  width: 220px; 
-}
+  .logo {
+    width: 220px; 
+  }
 }
 
 @media (max-width: 630px) {
-.footer-logo {
-  width: 320px; 
-}
+  .footer-logo {
+    width: 320px; 
+  }
 }
  /*Encabezado*/
  @media screen and (max-width: 767.9px) {

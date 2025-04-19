@@ -20,36 +20,37 @@ body{
      background-position: 0% 50%; 
     }
 }
- a{
+a{
   color:black;
-
 }
  
- .navbar-toggler{
-    background-color: white;
- }
- .offcanvas-body .nav-link {
-    color: rgb(0, 0, 0);
-    font-weight: 500;
+.navbar-toggler{
+  background-color: white;
+}
 
+.offcanvas-body .nav-link {
+  color: rgb(0, 0, 0);
+  font-weight: 500;
  }
- .offcanvas-body .nav-link.active {
-    color: rgb(193, 13, 163);
- }
+
+.offcanvas-body .nav-link.active {
+  color: rgb(193, 13, 163);
+}
  
- .offcanvas-body .nav-link:hover {
-    color: rgb(255, 91, 146)
- }
- .btn{
-    background: rgba(255, 0, 136, 0.553);
-    color: white;
-    font-weight: 500;
- }
- .btn:hover{
-    background: rgb(210, 94, 236);
-    color: black;
- }
+.offcanvas-body .nav-link:hover {
+  color: rgb(255, 91, 146)
+}
 
+.btn{
+  background: rgba(255, 0, 136, 0.553);
+  color: white;
+  font-weight: 500;
+}
+
+.btn:hover{
+  background: rgb(210, 94, 236);
+  color: black;
+}
 
 /*Articulo*/
         
