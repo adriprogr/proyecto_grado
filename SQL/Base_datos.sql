@@ -11,6 +11,7 @@ Create table roles (
 
 Create table usuarios (
 	id_usuario int PRIMARY KEY AUTO_INCREMENT,
+    email varchar(255),
     nombre_usuario varchar(30),
     contraseña varchar(50),
     id_rol int,
