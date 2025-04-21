@@ -78,7 +78,7 @@
   
 
 }
-.carousel-indicators [data-bs-target] {
+.carousel-indicators [data-bs-target] { /*Con esto cambio los iconos del carrusel de color*/
   background-color: black;
 }
 .btn-custom {
@@ -182,33 +182,6 @@ footer {
 }
 
 
-.iconos-redes-sociales a {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2px;
-  margin: 10px;
-  border: 2px solid white;
-  border-radius: 50%;
-  transition: all 0.2s ease-in;
-}
-
-.iconos-redes-sociales a:hover {
-  background-color: white;
-  border: 2px solid rgb(13, 110, 253);
-}
-
-.iconos-redes-sociales i {
-  color: white;
-  font-size: 24px;
-  transition: all 0.2s ease-in;
-}
-
-.iconos-redes-sociales a:hover i {
-  color: black;
-}
 
 
 .social-buttons {

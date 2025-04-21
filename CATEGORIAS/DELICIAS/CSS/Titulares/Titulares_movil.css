@@ -27,11 +27,7 @@
 }
 
 
-@media (max-width: 630px) {
-  .footer-logo {
-    width: 320px; 
-  }
-}
+
 /*Carrusel*/
 
 @media screen and (max-width: 842px) {
