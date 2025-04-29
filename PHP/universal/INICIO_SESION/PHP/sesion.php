@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $usuario = mysqli_fetch_assoc($resultado); /*Obtengo los datos del usuario y los guardo en la variable usuario*/ 
 
         if(password_verify($contrasena, $usuario['contraseña'])){ /*Verifico si la contraseña que se ha introducido coincide con la encriptada almacenada en la base de datos*/
-            /*Guardo tanto el nombre como el rol del usuario para poder personalizar mas la experiencia del usuario (Como por ejemplo poner el nombre por pantalla del usuario) o el rol (Por si un rol es administrador tener unas acciones o si es un usuario normal tener otras)*/ 
+            /*Guardo tanto el nombre como el rol del usuario para poder personalizar mas la experiencia del usuario (Como por ejemplo poner el nombre por pantalla del usuario) o el rol (Por si un usuario es administrador tener unas acciones o si es un usuario normal tener otras)*/ 
             $_SESSION['nombre_usuario'] = $usuario['nombre_usuario'];
             $_SESSION['id_usuario'] = $usuario['id_usuario'];
             $_SESSION['id_rol'] = $usuario['id_rol'];
