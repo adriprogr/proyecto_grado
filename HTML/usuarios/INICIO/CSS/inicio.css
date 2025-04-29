@@ -1,0 +1,283 @@
+/*Encabezado*/
+.cabecera{
+    background-image: url(../imagenes/Header.png); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+ 
+ }
+ 
+ .navbar-toggler{
+     background-color: white;
+ }
+ .offcanvas-body .nav-link {
+     color: white;
+     font-weight: 500;
+ }
+ .offcanvas-body .nav-link.active {
+     color: rgb(13, 193, 121);
+ }
+ 
+ .offcanvas-body .nav-link:hover {
+     color: orange
+ }
+ .btn{
+     background: rgb(13, 193, 121);
+     font-weight: 500;
+ }
+ .btn:hover{
+     background: rgb(236, 186, 94);
+     color: black;
+ }
+ .contenido-texto{
+ max-width: 1000px;
+ padding: 120px;
+ text-align: center;
+ color: rgb(255, 255, 255);
+ font-weight: 400;
+ }
+ 
+ /*¿Quienes Somos?*/
+ .contenedor{
+    position: relative;
+    background-color: #fdf6ec; 
+    padding: 60px 20px;
+    overflow: hidden;
+
+}
+
+.contenedor::before{
+    position: absolute;
+    content: '';
+    top: -50px;
+    left: -100px;
+    width: 160px;
+    height: 200px;
+    background-color: #e76f51; 
+    transform: rotate(20deg);
+    opacity: 0.8;
+    animation: animacion 5s infinite  ease;
+
+}
+
+.contenedor::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    right: -100px;
+    width: 200px;
+    height: 250px;
+    background-color: #2a9d8f; 
+    transform: rotate(20deg);
+    opacity: 0.8;
+    animation: animacion 5s infinite  ease;
+
+}
+
+@keyframes animacion{
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+.contenedor h1{
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.texto-body{
+    color: #000000;
+    font-size: 20px;
+    padding: 20px;
+}
+.texto-body button{
+    padding: 20px;
+}
+
+.imagenes img{
+    padding: 20px;
+    animation: flotar 2s infinite ease-in-out;
+}
+
+@keyframes flotar{
+    0%{
+        transform: translateY(0px);
+    } 
+    50%{
+        transform: translateY(20px);
+    }
+    100% {
+         transform: translateY(0);
+    }
+}
+
+.imagen_clave{
+    margin-left: 30%;
+}
+
+
+/*Categorias*/
+.texto-body-2{
+    font-size: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+.row{
+    padding: 10px;
+}
+.col-lg-4 {
+    position: relative; 
+    padding: 10px;
+}
+
+.col-lg-6 {
+    position: relative; 
+    padding: 10px;
+}
+
+.disposicion {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+ 
+}
+
+
+.cerrar{
+    background-color: red;
+    color: white;
+}
+
+.carta {
+    position: relative;
+    color: white;
+    text-align: left;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
+    height: 100%;
+    min-height: 300px;
+  }
+
+.carta .clave {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+
+.logito{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 120px;
+    padding: 5px; 
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255); 
+}
+
+/*Pie de Pagina*/
+/*Footer*/
+.footer {
+    background: linear-gradient(-45deg,#2e7557,  #9f4630);
+    background-size: 400% 400%;
+    animation: fondo 10s ease infinite;
+    position: relative;
+    color: white;
+    padding: 20px;
+  }
+  @keyframes fondo {
+    0% {
+       background-position: 0% 50%; 
+      }
+    50% {
+       background-position: 100% 50%; 
+      }
+    100% {
+       background-position: 0% 50%; 
+      }
+  }
+  
+.iconos-redes-sociales a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    margin: 10px;
+    border: 2px solid white;
+    border-radius: 50%;
+    transition: all 0.2s ease-in;
+}
+
+.iconos-redes-sociales a:hover {
+    background-color: white;
+    border: 2px solid rgb(13, 110, 253);
+}
+
+.iconos-redes-sociales i {
+    color: white;
+    font-size: 24px;
+    transition: all 0.2s ease-in;
+}
+
+.iconos-redes-sociales a:hover i {
+    color: black;
+}
+
+
+
+
+
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.facebook {
+    background: #1877F2;
+    color: white;
+}
+
+.twitter {
+    background: #1DA1F2;
+    color: white;
+}
+
+.google {
+    background: #DB4437;
+    color: white;
+}
+
+.instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    color: white;
+}
+
+
