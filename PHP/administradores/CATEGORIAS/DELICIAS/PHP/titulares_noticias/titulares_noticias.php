@@ -22,14 +22,14 @@
         $contenido_5 = $_POST['contenido_5'];
         
         $img = ['imagen_0', 'imagen_1' , 'imagen_2']; /*Hago uso de un array para guardar varias imagenes y guardarlas en una variable*/
-        $rutas_imagenes = [];
+        $rutas_imagenes = []; /* Aqui creo un array vacio donde se iran guardando todas las imagenes que vaya guardando en la ruta definitiva */
         foreach($img as $imagenes){ /*Recorro cada valor del array*/
             $nombre_archivo = $_FILES[$imagenes]['name']; /*Primero obtengo el nombre del archivo*/
             $tmp_archivo = $_FILES[$imagenes]['tmp_name']; /*Posteriormente guardo la imagen en una carpeta temporal*/
             $ruta = "imagenes/" . $nombre_archivo;/*Por ultimo indico la ruta donde se guardara la imagen*/
 
             move_uploaded_file($tmp_archivo, $ruta); /*Ahora muevo la imagen desde la carpeta temporal a la ruta definitiva*/
-            $rutas_imagenes[] = $ruta;
+            $rutas_imagenes[] = $ruta; /* Guardo la ruta final en el array */
 
         }
             $insertar_titular = "INSERT INTO titulares(id_titular, nombre_titular, introduccion, fecha, imagen, id_categoria) VALUES ('$id_titular', '$nombre_titular', '$introduccion', '$fecha','{$rutas_imagenes[0]}', '$id_categoria')";

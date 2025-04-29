@@ -22,7 +22,7 @@
         $contenido_5 = $_POST['contenido_5'];
         
         $img = ['imagen_0', 'imagen_1' , 'imagen_2']; /*Hago uso de un array para guardar varias imagenes y guardarlas en una variable*/
-        $rutas_imagenes = [];
+        $rutas_imagenes = []; /* Aqui creo un array vacio donde se iran guardando todas las imagenes que vaya guardando en la ruta definitiva */
         foreach($img as $imagenes){ /*Recorro cada valor del array*/
             $nombre_archivo = $_FILES[$imagenes]['name']; /*Primero obtengo el nombre del archivo*/
             $tmp_archivo = $_FILES[$imagenes]['tmp_name']; /*Posteriormente guardo la imagen en una carpeta temporal*/
