@@ -37,7 +37,6 @@ function insertar_noticia($conexion, $id_noticia, $titulo_1, $fecha, $contenido_
 // FUNCIONES IMAGENES
 /*Funcion que guarda las imagenes en rutas para que la base de datos pueda interpretarlas*/
 function guardar_rutas_imagenes($img){
-    $img = ['imagen_0', 'imagen_1' , 'imagen_2']; /*Hago uso de un array para guardar varias imagenes y guardarlas en una variable*/
     $rutas_imagenes = [];
     foreach ($img as $imagenes) {
         $nombre_archivo = $_FILES[$imagenes]['name'];
