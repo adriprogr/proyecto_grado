@@ -1,0 +1,59 @@
+#Primera Entrega:
+#Aqui esta la primera entrega del codigo del proyecgto. Esta contiene lo siguiente:
+    - Pagina Inicio estructura html y css
+    - Categorias de noticias con estructura y css de cada categoria
+    - Actualmente tiene muchos placeholder de contenido y diseño
+
+#Segunda Entrega
+# Esta es el codigo perteneciente a la segunda entrega del proyecto. Esta contiene lo siguiente:
+    - Rediseño de partes de la pagina Inicio 
+    - Rediseño en partes de la pagina de categorias
+    - Implementacion de una pagina de noticias para cada categoria
+    - Implementacion de la pagina de Inicio de sesion
+    - Implementacion de la pagina de registro
+    - Se agrago mas contenido dejando las paginas de inicio y categoria con menos placeholder
+    - Enlaces y botones funcionales
+    - Primera version del codigo SQL a utilizar para crear las tablas de la base de datos
+#Tercera Entrega:
+# Esta es el codigo perteneciente a la tercera entrega del proyecto. Esta contiene lo siguiente:
+    - Rediseño completo de la estructura del proyecto
+    - He mejorado la estructura de todos los bloques HTML y CSS para que sea mas leible
+    - He cambiado las rutas absolutas por relativas
+    - He cambiado el formato de las imagenes a .webp puesto que es un formato de imagen que pesa bastante poco pero manteniendo la calidad de la imagen 
+    - He añadido los archivos PHP faltantes a la entrega que te comente en la anterior entrega 
+    - Faltaria el tiempo que tarda en caducarse la sesion(En la proxima entrega)
+    #CARPETA ASSETS
+    #CSS
+    - Estan todos los archvios de estilo respectivos a cada parte de la pagina
+    #img
+    - Aqui se encuentran las imagenes que tienen por defecto la pagina como logos, imagenes de fondo etc
+    #img_noticias
+    - Aqui almacenare las imagenes que van dirigidas a la base de datos (Estas se utilizaran para imagenes de noticias)
+
+    #Backend
+    - Divido este apartado en tres carpetas
+
+    #PHP+HTML
+    - Aqui estara el contenido de la web, es decir la parte visual de la página (HTML) mezclado con funciones de backend(PHP)
+    - He mejorado la estructura html ya que anteriormente era mas facil liarse
+
+    #Backend
+    - Aqui estara el contenido que actuara "por detras de la pagina"(Es decir, el login, registro...)
+    - Hay dos archivos de funciones (Uno para el registro y login y el segundo para añadir noticias, titulares y comentarios)
+
+    #SQL
+    - Aqui estara el codigo SQL de la base de datos
+
+    #COSA A TENER EN CUENTA
+    - Los usuarios que estan actualmente creado tienen un metodo de encriptacion por lo que la contraseña no se vera. Os dejo por aqui sus datos para hacer pruebas
+
+    #Usuarios administrador
+    - Nombre usuario: Admin_1
+    - Contraseña: Admin_1
+
+    - Nombre_usuario: Admin_2
+    - Contraseña: admin_2022*2
+
+    #Usuarios de elite
+    - Nombre usuario: adrielite 
+    - Contraseña: Tana*2022
