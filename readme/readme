@@ -57,3 +57,8 @@
     #Usuarios de elite
     - Nombre usuario: adrielite 
     - Contraseña: Tana*2022
+
+    - Solamente los usuarios administradores pueden crear cuentas administradoras
+    - Intentare añadir mas funciones para los administradores como el eliminar noticias y titulares directamente desde la web o poder modificar los titulares y noticias en la misma web(Sin tener que pasar por la base de datos)
+    - Te he vuelto a subir el github ya que he visto que en la base de datos habia imagenes que no estaban bien referenciadas
+    - Tambien habian imagenes mal referenciadas en vscode. Ya estan cambiadas y se ven bien

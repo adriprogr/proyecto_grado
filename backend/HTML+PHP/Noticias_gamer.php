@@ -111,12 +111,12 @@
                                 <span> ' . $row['fecha'] . '</span>
                             </div>
                             <p class="parrafo-articulo"> ' . $row['contenido_1'] . '</p>
-                            <img src="../titulares_noticias/'. $row['imagen'] . '" class="img-fluid mb-4 rounded imagen-articulo">
+                            <img src="'. $row['imagen'] . '" class="img-fluid mb-4 rounded imagen-articulo">
 
                             <h1 class="titulo-articulo"> ' . $row['titulo_2'] . '</h1>
                             <p class="parrafo-articulo"> ' . $row['contenido_2'] . '</p>
                             <p class="parrafo-articulo"> ' . $row['contenido_3'] . '</p>
-                            <img src="../titulares_noticias/'. $row['imagen_2'] . '" class="img-fluid mb-4 rounded imagen-articulo">
+                            <img src="'. $row['imagen_2'] . '" class="img-fluid mb-4 rounded imagen-articulo">
                         
                             <h1 class="titulo-articulo"> ' . $row['titulo_3'] . '</h1>
                             <p class="parrafo-articulo"> ' . $row['contenido_4'] . '</p>
