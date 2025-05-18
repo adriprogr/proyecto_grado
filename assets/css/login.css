@@ -7,7 +7,8 @@ body {
   background-size: 400% 400%;
   animation: fondo 20s ease infinite;
   position: relative;
-  height: 100vh;
+  height: 106vh;
+  
 }
 @keyframes fondo {
   0% {

@@ -35,9 +35,15 @@
 
 
 /*Carrusel*/
-@media screen and (max-width: 1249px) {
+@media screen and (max-width: 760px) {
   .carousel-item img {
-    width: 0;
+    max-height: 400px;
+  }
+  .carousel-caption h5{
+    font-size: 20px;
+  }
+  .carousel-caption p{
+    font-size: 15px
   }
 }
 
@@ -53,6 +59,10 @@
   .titulo {
     font-size: 15px;
   }
+ footer ul li a{
+    font-size: 13px;
+  }
+
 }  
 
 @media screen and (max-width: 450px) {

@@ -88,3 +88,10 @@
     }
 
 }
+
+@media screen and (max-width: 1208px) {
+
+footer ul li a{
+    font-size: 13px;
+  }
+}

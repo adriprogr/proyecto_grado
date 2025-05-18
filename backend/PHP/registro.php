@@ -6,7 +6,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $email = $_POST['email'];
     $nombre_usuario = $_POST['nombre_usuario'];
     $contrasena = $_POST['contrasena'];
-    $rol = $_SESSION['id_rol'];
     //Guardo la funcion de consultar_usuarios en una variable 
     $consultar_usuarios = consultar_usuarios($conexion, $email, $nombre_usuario);
     if($consultar_usuarios){
@@ -17,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         </script>
         '; 
     } else {   
-        if($rol == 1){ // Condicion para los administradores    
+        if(isset($_SESSION['id_rol']) && ($_SESSION['id_rol'] == 1)){ // Condicion para los administradores    
             $introducir_usuarios_admin = insertar_usuario_admin($conexion, $email, $nombre_usuario, $contrasena); /*Guardo la funcion de insertar a los usuarios admin en variable*/
             if($introducir_usuarios_admin){
                 echo '
@@ -52,6 +51,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 }
+
 
 
 ?>

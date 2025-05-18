@@ -23,7 +23,6 @@
 }
 .btn{
   background: rgba(193, 145, 13, 0.723);
-  margin-top: 10px;
   color: white;
   font-weight: 500;
 }
@@ -147,7 +146,16 @@ form{
   border-radius: 8px; 
 }
   
+.botones{
+  display: flex;
+  gap: 15px;
+}
 
+.botones_carrusel{
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
 /*Footer*/
 footer {
   padding: 20px;

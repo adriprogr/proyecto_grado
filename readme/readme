@@ -58,7 +58,11 @@
     - Nombre usuario: adrielite 
     - Contraseña: Tana*2022
 
-    - Solamente los usuarios administradores pueden crear cuentas administradoras
-    - Intentare añadir mas funciones para los administradores como el eliminar noticias y titulares directamente desde la web o poder modificar los titulares y noticias en la misma web(Sin tener que pasar por la base de datos)
-    - Te he vuelto a subir el github ya que he visto que en la base de datos habia imagenes que no estaban bien referenciadas
-    - Tambien habian imagenes mal referenciadas en vscode. Ya estan cambiadas y se ven bien
+# CUARTA ENTREGA
+# Esta es el codigo perteneciente a la cuarta entrega del proyecto. Esta contiene lo siguiente:
+    - Mejora de diseño en el pié de página y en los elementos carousel perteneciente a los titulares de cada categoria
+    - Nuevas funciones implementadas como el cambio de dcontraseña (A traves del email del usuario) y el borrado de titulares y noticias
+    - He vuelto a restructurar todo el codigo PHP para añadirle mas seguridad en base a las inyecciones SQL
+    - He creado una nueva funcion en la que hago uso del bot de discord (Webhook). Este avisara por el canal correspondiente del servidor de discord con una notificacion cuando se suba un titular y noticia a la base de datos.
+    - He echo uso de la libreria de AOS para implementar algunas animaciones a la web
+    

@@ -28,6 +28,9 @@ body{
 .dropdown-menu {
   min-width: auto;
 }
+.dropdown-menu-footer{
+  min-width: none;
+}
  .navbar-toggler{
     background-color: white;
  }

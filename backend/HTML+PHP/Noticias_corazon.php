@@ -13,13 +13,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../assets/css/Noticias_corazon.css">
     <link rel="stylesheet" href="../../assets/css/Noticias_movil.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+
+
 </head>
 <body>
     <section class="cabecera" id="inicio">  <!--Contenedor que inclute el fondo del header y que contendra toda la estructura del header con sus elementos-->
     <!-- Barra de navegacion-->
         <nav class="navbar navbar-expand-md "> <!--Empiezo a definir el header diciendo que se va a expandir hasta los dispositivos medianos-->
             <div class="container-fluid d-flex justify-content-between align-items-center"> <!--Contenedor donde se ajojara todo el contenido. Estos tienen estilos de bootstrap aplicando un display flex donde el contenido estara separado entre ellos-->
-                <a href="Titulares_corazon.php">
+                <a href="Titulares_corazon.php"  data-aos="fade-down" data-aos-duration="1000" >
                     <img class="logo" src="../../assets/img/noticias_corazon.webp" width="320px">
                 </a>
                 <!-- Menu que se activa cuando llege a su limite. Aqui especifico el boton que sera de tipo offcanvas(diseño de bootstrap) para abrir el panel lateral -->
@@ -34,7 +38,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
                     </div>
                     <!--Al igual que detalle antes la cabeza del header hare lo mismo con el body. Este contendra 4 enlaces(De momento) y 1 boton que me redirigira automaticamente al apartado de mas informacion sobre la web-->
-                    <div class="offcanvas-body text-center">
+                    <div class="offcanvas-body text-center" data-aos="fade-right" data-aos-duration="1000">
                         <ul class="navbar-nav justify-content-end flex-grow-1 3">
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="index.php">Incio</a>
@@ -53,6 +57,7 @@
                                             <ul class="dropdown-menu">
                                                 <li><a class="dropdown-item" href="../PHP/cerrar_sesion.php">Cerrar Sesion</a></li>
                                                 <li><a class="dropdown-item" href="registro.php">Registro</a></li>
+                                                <li><a class="dropdown-item" href="contraseña.php">Nueva clave</a></li>
                                             </ul>
                                         </li>
                                         ';
@@ -62,6 +67,7 @@
                                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hola, ' . htmlspecialchars($_SESSION['nombre_usuario']) . '</a>
                                             <ul class="dropdown-menu">
                                                 <li><a class="dropdown-item" href="../PHP/cerrar_sesion.php">Cerrar Sesion</a></li>
+                                                <li><a class="dropdown-item" href="contraseña.php">Nueva clave</a></li>
                                             </ul>
                                         </li>
                                         ';
@@ -169,14 +175,14 @@
 
            
     <!--Pie de pagina-->
-    <footer class="footer">
+    <footer class="footer" data-aos="fade-down" data-aos-duration="800">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-4">
+                <div class="col-lg-4 mb-4 text-center">
                     <img src="../../assets/img/noticias_corazon.webp" class="img-fluid mb-4" width="400px;">
                 </div>
 
-                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" data-aos="fade-down" data-aos-duration="800" >
                     <h5 class="mb-3">Enlaces</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="index.php" class="text-white text-decoration-none"><i class="bi bi-house me-2"></i>INICIO</a></li>
@@ -186,35 +192,40 @@
                                 $rol = $_SESSION['id_rol'];
                                 if ($rol == 1){
                                     echo ' 
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hola, ' . htmlspecialchars($_SESSION['nombre_usuario']) . '</a>
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> Hola, ' . htmlspecialchars($_SESSION['nombre_usuario']) . '</button>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="../PHP/cerrar_sesion.php">Cerrar Sesion</a></li>
                                             <li><a class="dropdown-item" href="registro.php">Registro</a></li>
+                                            <li><a class="dropdown-item" href="contraseña.php">Nueva Clave</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                          
+                                ';
+                                } elseif($rol == 2) {
+                                    echo '
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> Hola, ' . htmlspecialchars($_SESSION['nombre_usuario']) . '</button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="../PHP/cerrar_sesion.php">Cerrar Sesion</a></li>
+                                            <li><a class="dropdown-item" href="contraseña.php">Nueva Clave</a></li>
                                         </ul>
                                     </li>
                                 ';
-                                } elseif($rol == 2) {
-                                    echo ' 
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hola, ' . htmlspecialchars($_SESSION['nombre_usuario']) . '</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="../PHP/cerrar_sesion.php">Cerrar Sesion</a></li>
-                                        </ul>
-                                    </li>
-                                    ';
                                 }
                             } else {
                                 echo '
-                                <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="registro.php">Iniciar Sesion/Registrarse</a>
-                                </li>';
-                            }       
+                                <li class="mb-2">
+                                    <a class="text-white text-decoration-none" href="registro.php"><i class="bi bi-box-arrow-in-right me-2"></i>INICIAR SESION / REGISTRO</a>
+                                </li>
+                                ';
+                            }
                         ?>
                     </ul>
                 </div>
             
-                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" data-aos="fade-down" data-aos-duration="800" >
                     <h5 class="mb-3">Categorias</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="Titulares_corazon.php" class="text-white text-decoration-none"><i class="bi bi-heart me-2"></i>CORAZÓN</a></li>
@@ -235,21 +246,9 @@
                     </ul>
                 </div>
             
-                <div class="col-lg-4 mb-4">
-                    <h5 class="mb-3">¡Visita nuestras redes sociales!</h5>
-                    <div class="d-flex gap-3 mb-3">
-                        <button class="social-btn facebook">
-                        <a href="https://facebook.com" target="_blank" class="text-white"> <i class="bi bi-facebook fs-5"></i></a>
-                        </button>
-                        
-                        <button class="social-btn twitter">
-                        <a href="https://x.com" target="_blank" class="text-white"><i class="bi bi-twitter fs-5"></i></a>
-                        </button>
-        
-                        <button class="social-btn instagram">
-                        <a href="https://instagram.com" target="_blank" class="text-white"><i class="bi bi-instagram fs-5"></i></a>  
-                        </button>
-                    </div>
+                <div class="col-lg-2 col-md-4 mb-4 text-center" data-aos="fade-down" data-aos-duration="1200">
+                    <h5 class="mb-3">¡Visita nuestro canal oficial!</h5>
+                    <a href="https://facebook.com" target="_blank" class="text-white btn facebook "> <i class="bi bi-facebook fs-5"></i></a>                  
                 </div>
             </div>
         </div>
@@ -257,5 +256,11 @@
 
          
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
+
 </body>
 </html>

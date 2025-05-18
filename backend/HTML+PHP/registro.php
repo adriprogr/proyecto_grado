@@ -3,8 +3,7 @@
     session_start();
     
     if(isset($_SESSION['id_rol'])){ // Si un usuario elite tiene la sesion inciada le sera imposible acceder a esta pagina, a menos de que cierre la sesion
-        $rol = $_SESSION['id_rol'];
-        if($rol == 2) { 
+        if( $_SESSION['id_rol'] == 2) { 
             header("Location: ../HTML+PHP/index.php");
         }
     }
@@ -18,8 +17,8 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../assets/css/registro.css">
-    <link rel="stylesheet" href="../../assets/CSS/registro_movil.css">
+    <link rel="stylesheet" href="../../assets/css/login.css">
+    <link rel="stylesheet" href="../../assets/CSS/login_movil.css">
 
 
 </head>
@@ -91,14 +90,14 @@
                     
                     ?>
                     <form method="post" action="../PHP/registro.php">
-                        <div class="mb-4 input-group">
+                        <div class="mb-3 input-group">
                             <span class="input-group-text bg-white">
                                 <i class="bi bi-envelope"></i>
                             </span>
                             <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
                         </div>
 
-                        <div class="mb-4 input-group">
+                        <div class="mb-3 input-group">
                             <span class="input-group-text bg-white">
                                 <i class="bi bi-person"></i>
                             </span>
@@ -106,14 +105,14 @@
                         </div>
                         
 
-                        <div class="mb-4 input-group">
+                        <div class="mb-3 input-group">
                             <span class="input-group-text bg-white">
                                     <i class="bi bi-box-arrow-in-right"></i>
                             </span>
                             <input type="password" name="contrasena" class="form-control" placeholder="Contraseña" required>
                         </div>
 
-                        <div class="d-grid mb-4">
+                        <div class="d-grid mb-3">
                             <button type="submit" class="btn login-btn btn-lg text-white shadow-sm">
                                 <i class="bi bi-box-arrow-in-right"></i>
                                 <span>Registrate</span>
@@ -127,7 +126,7 @@
                     </div>
 
                     
-                    <div class="d-grid mb-4">
+                    <div class="d-grid mb-3">
                         <a type="submit" class="btn login-btn btn-lg text-white shadow-sm" href="../HTML+PHP/sesion.php">
                             <i class="bi bi-box-arrow-in-right"></i>
                             <span>Inicia Sesion</span>

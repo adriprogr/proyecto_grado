@@ -25,8 +25,8 @@
         // Establezco una variable llamada redireccion y con ella toma referencia de la pagina anterior para volver a ella una vez terminado el php
         $redireccion = $_SERVER['HTTP_REFERER']; 
         
-        $imagenes = ['imagen_0', 'imagen_1', 'imagen_2'];
-        $rutas_imagenes = guardar_rutas_imagenes($img); // Guardamos la funcion de guardar las imagenes
+        
+        $rutas_imagenes = guardar_rutas_imagenes(); 
 
         if(consultar_titular($conexion, $id_titular)){ /*Verifico que el id de titular introducido no este introducido en la base de datos*/
             echo "

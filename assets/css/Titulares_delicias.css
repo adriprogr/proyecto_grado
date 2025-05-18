@@ -24,7 +24,6 @@
 }
 .btn{
   background: rgba(193, 157, 13, 0.723);
-  margin-top: 10px;
   color: white;
   font-weight: 500;
 }
@@ -104,7 +103,16 @@ form{
   border: none;
   color: white;
 }
+.botones{
+  display: flex;
+  gap: 15px;
+}
 
+.botones_carrusel{
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
 
 /*Mas Noticias*/
 .col-lg-4{

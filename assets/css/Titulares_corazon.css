@@ -10,6 +10,15 @@
 .dropdown-menu {
   min-width: auto;
 }
+
+
+
+
+a {
+    color: white;
+    text-decoration: none;
+   
+}
 .offcanvas-body .nav-link {
    color: white;
    font-weight: 500;
@@ -25,7 +34,6 @@
   background: rgba(255, 0, 136, 0.553);
   color: white;
   font-weight: 500;
-  margin-top: 10px;
 }
 .btn:hover{
    background: rgb(236, 94, 234);
@@ -48,6 +56,7 @@ form{
 
 
 /*Carousel*/
+
 
 .carousel{
   padding: 50px 50px;
@@ -154,7 +163,16 @@ form{
   border-radius: 8px; 
 }
   
+.botones{
+  display: flex;
+  gap: 15px;
+}
 
+.botones_carrusel{
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
 /*Footer*/
 footer {
   padding: 20px;
@@ -194,8 +212,7 @@ footer {
 .social-buttons {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 25px;
+
 }
 
 .social-btn {

@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="../../assets/css/Titulares_corazon.css">
     <link rel="stylesheet" href="../../assets/css/Titulares_movil.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -22,7 +23,7 @@
         <nav class="navbar navbar-expand-md "> <!--Empiezo a definir el header diciendo que se va a expandir hasta los dispositivos medianos-->
             <div class="container-fluid d-flex justify-content-between align-items-center"> <!--Contenedor donde se ajojara todo el contenido. Estos tienen estilos de bootstrap aplicando un display flex donde el contenido estara separado entre ellos-->
                 <!-- Logo -->
-                <a href="Titulares_corazon.php">
+                <a href="Titulares_corazon.php" data-aos="fade-up" data-aos-duration="1000">
                     <img class="logo" src="../../assets/img/noticias_corazon.webp" width="320px">
                 </a>
                 <!-- Menu que se activa cuando llege a su limite. Aqui especifico el boton que sera de tipo offcanvas(diseño de bootstrap) para abrir el panel lateral -->
@@ -37,7 +38,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
                     </div>
                     <!--Al igual que detalle antes la cabeza del header hare lo mismo con el body. Este contendra 4 enlaces(De momento) y 1 boton que me redirigira automaticamente al apartado de mas informacion sobre la web-->
-                    <div class="offcanvas-body text-center">
+                    <div class="offcanvas-body text-center"  data-aos="fade-right" data-aos-duration="1000">
                         <ul class="navbar-nav justify-content-end flex-grow-1 3">
                             <li class="nav-item">
                                 <a class="nav-link " aria-current="page" href="#inicio">Incio</a>
@@ -56,6 +57,7 @@
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="../PHP/cerrar_sesion.php">Cerrar Sesion</a></li>
                                             <li><a class="dropdown-item" href="registro.php">Registro</a></li>
+                                            <li><a class="dropdown-item" href="contraseña.php">Nueva Clave</a></li>
                                         </ul>
                                     </li>
                                     ';
@@ -81,18 +83,17 @@
             </div>
         </nav>
       
-        <div class=" contenido-texto container-fluid">
-            <h1>¡Bienvenidos al Portal del Corazon, donde encontraras toda la actualidad y entretenimiento sobre tus famosos favoritos </h1>
-            <p>En este portal encontraras contenido exclusivo sobre la actualidad, entretenimiento y curiosidades sobre tus famosos favoritos.</p>    
-            <a href="#Titulares"><button type="button" class="btn btn-lg">¡Echar un vistazo!</button></a>
+        <div class=" contenido-texto container-fluid" >
+            <h1 data-aos="fade-up" data-aos-duration="1000">¡Bienvenidos al Portal del Corazon, donde encontraras toda la actualidad y entretenimiento sobre tus famosos favoritos </h1>
+            <p data-aos="fade-up" data-aos-duration="1000">En este portal encontraras contenido exclusivo sobre la actualidad, entretenimiento y curiosidades sobre tus famosos favoritos.</p>    
+            <a href="#Titulares"><button type="button" data-aos="fade-up" data-aos-duration="1000" class="btn btn-lg mb-4">¡Echar un vistazo!</button></a>
             <?php
                 if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
                     $rol = $_SESSION['id_rol'];
                     if ($rol == 1){           
-                        
                         // Formulario para implementar los titulares y noticias         
                         echo '
-                        <button class="btn btn-primary disposicion"  data-bs-target="#modal1" data-bs-toggle="modal">Agregar Titular Y Noticia</button>
+                        <button type="button" data-aos="fade-up" data-aos-duration="1000" class="btn btn-lg mb-4"  data-bs-target="#modal1" data-bs-toggle="modal">Agregar Titular Y Noticia</button>
                         
                         <!--Seccion de agregar titulares y noticias -->
 
@@ -115,17 +116,17 @@
 
                                             <div class="mb-3">
                                                 <label for="id_titular" class="form-label">Introduzca el id que tendra el titular</label>
-                                                <input type="number" class="form-control"  name="id_titular" placeholder="id del Titular" required>
+                                                <input type="number" class="form-control"  name="id_titular" placeholder="id del Titular"  required>
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="Titulo" class="form-label">Introduzca el nombre que tendra el titular</label>
-                                                <input type="text" class="form-control"  name="nombre_titular" placeholder="Nombre del Titular" required>
+                                                <input type="text" class="form-control"  name="nombre_titular" placeholder="Nombre del Titular(Caracteres minimo 30 y maximo 70)"  minlength="30" maxlength="70" required>
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="Introduccion" class="form-label">Introduzca una breve Introduccion a la noticia</label>
-                                                <input type="text" class="form-control"  name="introduccion"  placeholder="Breve Introduccion"required>
+                                                <input type="text" class="form-control"  name="introduccion"  placeholder="Breve Introduccion(Caracteres minimo 60 y maximo 100)"  minlength="60" maxlength="100"required>
                                             </div>
                                         
                                             <div class="mb-3">
@@ -214,13 +215,13 @@
         </div>            
     </section>
   <!--Carrusel-->
-    <section id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
+    <section id="carouselExampleAutoplaying" class="container carousel slide" data-aos="zoom-in-up" data-aos-duration="1000" data-bs-ride="carousel">
+        <div class="carousel-indicators"> 
             <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <h1 class="text-center">Noticias Destacadas</h1>
+        <h1 class="text-center" data-aos="zoom-in-up" data-aos-duration="1000">Noticias Destacadas</h1>
         
         <div class="carousel-inner " data-bs-interval="5000" id="Titulares">
         <?php
@@ -229,33 +230,63 @@
             $resultado_active = mysqli_query($conexion, $consulta_activa);
             $resultado_normal = mysqli_query($conexion, $consulta_normal);
 
-            if(mysqli_num_rows($resultado_active) > 0){
+            if(mysqli_num_rows($resultado_active) > 0 && mysqli_num_rows($resultado_normal) > 0){
                 while ($row = mysqli_fetch_assoc($resultado_active)) {
                     echo ' 
                     <div class="carousel-item active">
                         <img src="'. $row['Imagen'] . '" class="d-block w-100">
                         <div class="carousel-caption">
-                            <h5>' . $row['nombre_titular']. '<h5>
+                            <h5>' . $row['nombre_titular']. '</h5>
                             <p> ' .$row['introduccion'] . '</p>
-                            <a href="Noticias_corazon.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>                    
-                        </div>
-                    </div>';
+                            <div class="botones_carrusel">
+                                <a href="Noticias_corazon.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>';
+                                
+
+                                if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
+                                    $rol = $_SESSION['id_rol'];
+                                    
+                                    if ($rol == 1){
+                                        echo '
+                                        <form method = "POST" class="" action="../PHP/borrar_titulares_noticias.php" onsubmit="return confirm(\'¿Estas seguro de eliminar este titular y noticia?\')">
+                                            <input type = "hidden" name="id_titular" value="' . $row['id_titular'] .'">
+                                                <button type = "submit" class="btn"> Eliminar</button>
+                                        </form>
+                                        ';
+                                    }
+                                }
+                    echo '</div> </div> </div>';
                 }
-            } else {
-                echo '<p> No hay noticias para mostrar</p>';
-            }
+                
+           
             
-            while ($row = mysqli_fetch_assoc($resultado_normal)) {
-                echo ' 
-                <div class="carousel-item">
-                    <img src="'. $row['Imagen'] . '" class="d-block w-100" alt="...">
-                    <div class="carousel-caption">
-                        <h5>' . $row['nombre_titular']. '</h5>
-                        <p> ' .$row['introduccion'] . '</p>
-                        <a href="Noticias_corazon.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>                    
-                    </div>
-                </div>';
-            }
+                while ($row = mysqli_fetch_assoc($resultado_normal)) {
+                    echo ' 
+                    <div class="carousel-item">
+                        <img src="'. $row['Imagen'] . '" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h5>' . $row['nombre_titular']. '</h5>
+                            <p> ' .$row['introduccion'] . '</p>
+                            <div class="botones_carrusel">
+                                <a href="Noticias_corazon.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>';
+                                
+
+                                if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
+                                    $rol = $_SESSION['id_rol'];
+                                    
+                                    if ($rol == 1){
+                                        echo '
+                                        <form method = "POST" class="" action="../PHP/borrar_titulares_noticias.php" onsubmit="return confirm(\'¿Estas seguro de eliminar este titular y noticia?\')">
+                                            <input type = "hidden" name="id_titular" value="' . $row['id_titular'] .'">
+                                            <button type = "submit" class="btn"> Eliminar</button>
+                                        </form>
+                                        ';
+                                    }
+                                }
+                    echo '</div> </div> </div>';
+                }
+        } else {
+            echo '<p class="text-center"> No hay noticias para mostrar</p>';
+        }
         ?>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -273,39 +304,50 @@
     <!--Mas noticias-->
     <section class="container ">
         <h1 class="text-center">Mas noticias</h1>
-        <div class="row">
+        <div class="row d-flex justify-content-center">
         <?php
             $consulta_final = "SELECT * FROM titulares WHERE id_categoria = 1 ORDER BY fecha DESC LIMIT 100 OFFSET 3";
             $resultado_normal = mysqli_query($conexion, $consulta_final);
 
             while ($row = mysqli_fetch_assoc($resultado_normal)) {
                 echo '
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="carta"> 
+                <div class="container col-lg-6 col-md-6 mb-4 ">
+                    <div class="carta" data-aos="zoom-in-up" data-aos-duration="800"> 
                         <img class="clave" src="'. $row['Imagen'] . '" class="d-block w-100" alt="...">
                         <img class="logito" src="../../assets/img/portal_corazon.webp"  alt="Logo del portafolio">
-                        <div class="texto-carta">
+                        <div class="texto-carta ">
                             <span class="categoria">CORAZON</span>
                             <h2 class="titulo">'  . $row['nombre_titular']. ' </h2>
                             <p>' .$row['introduccion'] . '</p>
-                            <a href="Noticias_corazon.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>                    
-                        </div>
-                    </div>
-                </div>';
+                            <div class="botones">
+                                <a href="Noticias_corazon.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>';  
+                                if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
+                                    $rol = $_SESSION['id_rol'];
+                                    
+                                    if ($rol == 1){
+                                        echo '
+                                        <form method = "POST" class="" action="../PHP/borrar_titulares_noticias.php" onsubmit="return confirm(\'¿Estas seguro de eliminar este titular y noticia?\')">
+                                            <input type = "hidden" name="id_titular" value="' . $row['id_titular'] .'">
+                                            <button type = "submit" class="btn"> Eliminar</button>
+                                        </form>
+                                        ';
+                                    }
+                                }
+                echo '</div> </div> </div> </div>';
             }
         ?>
         </div>
     </section>
     
     <!--Pie de pagina-->
-    <footer class="footer">
+    <footer class="footer" data-aos="fade-down" data-aos-duration="800">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <img src="../../assets/img/noticias_corazon.webp" class="img-fluid mb-4" width="400px;">
+                <div class="col-lg-4 mb-4 text-center">
+                    <img src="../../assets/img/noticias_corazon.webp" class="img-fluid mb-4" width="400px">
                 </div>
 
-                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" data-aos="fade-down" data-aos-duration="800" >
                     <h5 class="mb-3">Enlaces</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="index.php" class="text-white text-decoration-none"><i class="bi bi-house me-2"></i>INICIO</a></li>
@@ -314,34 +356,41 @@
                             if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
                                 $rol = $_SESSION['id_rol'];
                                 if ($rol == 1){
-                                    echo ' <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hola, ' . htmlspecialchars($_SESSION['nombre_usuario']) . '</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../PHP/cerrar_sesion.php">Cerrar Sesion</a></li>
-                                        <li><a class="dropdown-item" href="registro.php">Registro</a></li>
-                                    </ul>
-                                </li>
+                                    echo ' 
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> Hola, ' . htmlspecialchars($_SESSION['nombre_usuario']) . '</button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="../PHP/cerrar_sesion.php">Cerrar Sesion</a></li>
+                                            <li><a class="dropdown-item" href="registro.php">Registro</a></li>
+                                            <li><a class="dropdown-item" href="contraseña.php">Nueva Clave</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                          
                                 ';
                                 } elseif($rol == 2) {
-                                    echo ' <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hola, ' . htmlspecialchars($_SESSION['nombre_usuario']) . '</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../PHP/cerrar_sesion.php">Cerrar Sesion</a></li>
-                                    </ul>
-                                </li>
+                                    echo '
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> Hola, ' . htmlspecialchars($_SESSION['nombre_usuario']) . '</button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="../PHP/cerrar_sesion.php">Cerrar Sesion</a></li>
+                                            <li><a class="dropdown-item" href="contraseña.php">Nueva Clave</a></li>
+                                        </ul>
+                                    </li>
                                 ';
                                 }
                             } else {
                                 echo '
-                                <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="registro.php">Iniciar Sesion/Registrarse</a>
-                                </li>';
+                                <li class="mb-2">
+                                    <a class="text-white text-decoration-none" href="registro.php"><i class="bi bi-box-arrow-in-right me-2"></i>INICIAR SESION / REGISTRO</a>
+                                </li>
+                                ';
                             }
                         ?>
                     </ul>
                 </div>
             
-                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" data-aos="fade-down" data-aos-duration="800" >
                     <h5 class="mb-3">Categorias</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="#inicio" class="text-white text-decoration-none"><i class="bi bi-heart me-2"></i>CORAZON</a></li>
@@ -362,29 +411,20 @@
                     </ul>
                 </div>
             
-                <div class="col-lg-4 mb-4">
-                    <h5 class="mb-3">¡Visita nuestras redes sociales!</h5>
-                    <div class="d-flex gap-3 mb-3">
-                        <div class="social-buttons">
-                            <button class="social-btn facebook">
-                                <a href="https://facebook.com" target="_blank" class="text-white"> <i class="bi bi-facebook fs-5"></i></a>
-                            </button>
-                                
-                            <button class="social-btn twitter">
-                                <a href="https://x.com" target="_blank" class="text-white"><i class="bi bi-twitter fs-5"></i></a>
-                            </button>
-                    
-                            <button class="social-btn instagram">
-                                <a href="https://instagram.com" target="_blank" class="text-white"><i class="bi bi-instagram fs-5"></i></a>  
-                            </button>
-                        </div>
-                    </div>
+                <div class="col-lg-2 col-md-4 mb-4 text-center" data-aos="fade-down" data-aos-duration="1200">
+                    <h5 class="mb-3">¡Visita nuestro canal oficial!</h5>
+                    <a href="https://discord.gg/WgHjZRWM" target="_blank" class="text-white btn facebook "> <i class="fab fa-discord "></i></a>                  
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
 
 
 </body>

@@ -1,16 +1,9 @@
 <?php
     include_once '../PHP/conexion.php';
     session_start();
-    
-    if(isset($_SESSION['id_rol'])){ // Si un usuario elite tiene la sesion inciada le sera imposible acceder a esta pagina, a menos de que cierre la sesion
-        $rol = $_SESSION['id_rol'];
-        if($rol == 2) { 
-            header("Location: ../HTML+PHP/index.php");
-        }
-    }
+
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="auto">
 <head>
@@ -18,13 +11,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../assets/css/login.css">
-    <link rel="stylesheet" href="../../assets/css/login_movil.css">
+    <link rel="stylesheet" href="../../assets/CSS/login_movil.css">
 
 
 </head>
 <body>
+    
     <div class="row">
         <!--Columna de logos con un espacio de 5 columnas de las 12-->
         <div class="fondo col-lg-5 d-flex justify-content-center p-4"> <!--Animaciones cuadrado con el color de cada logo-->
@@ -76,61 +71,53 @@
         <div class="formulario2 col-lg-7 d-flex align-items-center justify-content-center p-4">
             <div class="sesion">                 
                 <div class="card-body p-4">
-                    <h2 class="text-center fw-bold">¡Bienvenido!</h2>
-                    <p class="text-center">Accede a tu cuenta para disfrutar de contenido exclusivo</p>
-                    
-                    <form method="post" action="../PHP/sesion.php">
-                        <div class="mb-3 input-group">
+                    <h2 class="text-center fw-bold">Cambiar la contraseña</h2>
+                    <p class="text-center">¿Te has olvidado la contraseña? No te preocupes. Introduce el correo vinculado a tu cuenta para crear una nueva contraseña</p>
+                    <form method="post" action="../PHP/recuperar_contrasena.php">
+                        <div class="mb-4 input-group">
                             <span class="input-group-text bg-white">
-                                <i class="bi bi-person"></i>
+                                <i class="bi bi-envelope"></i>
                             </span>
-                            <input type="text" name="nombre_usuario" class="form-control" placeholder="Nombre de usuario" required>
+                            <?php
+                                if(isset($_SESSION['id_rol'])){
+                                    echo '<input type="text" name="correo" class="form-control" value="'. htmlspecialchars($_SESSION['email']) .'" readonly>'; 
+                                } else {
+                                    echo '<input type="text" name="correo" class="form-control" placeholder="Introduce tu correo electronico vinculado a la cuenta que no tengas acceso" required>';
+                                }
+                            ?>
                         </div>
                         
+                        
 
-                        <div class="mb-3 input-group">
+                        <div class="mb-4 input-group">
                             <span class="input-group-text bg-white">
                                     <i class="bi bi-box-arrow-in-right"></i>
                             </span>
-                            <input type="password" name="contrasena" class="form-control" placeholder="Contraseña" required>
+                            <input type="password" name="contrasena" class="form-control" placeholder="Introduce la nueva contraseña" required>
                         </div>
 
-                        <div class="d-grid mb-3">
+                        <div class="d-grid mb-4">
                             <button type="submit" class="btn login-btn btn-lg text-white shadow-sm">
                                 <i class="bi bi-box-arrow-in-right"></i>
-                               <span> Iniciar Sesion</span>
+                                <span>Cambiar contraseña</span>
                             </button>
-                        </div>
-
-                        <div class="d-grid mb-3">
-                            <a href="contraseña.php" class="text-center">¿Has olvidado la contraseña?</a>
                         </div>
                             
                     </form>
 
                     <div class="divider">
-                        <span>O si no tienes cuenta</span>
+                        <span>O si ya te acuerdas</span>
                     </div>
 
                     
-                    <div class="d-grid mb-3">
-                        <a type="submit" class="btn login-btn btn-lg text-white shadow-sm" href="registro.php">
+                    <div class="d-grid mb-4">
+                        <a type="submit" class="btn login-btn btn-lg text-white shadow-sm" href="../HTML+PHP/sesion.php">
                             <i class="bi bi-box-arrow-in-right"></i>
-                          <span>Registrate</span>               
+                            <span>Inicia Sesion</span>
                         </a>
                     </div>
 
-                    <div class="divider">
-                        <span>O si lo prefieres</span>
-                    </div>
-
-                    
-                    <div class="d-grid mb-2">
-                        <a type="submit" class="btn login-btn btn-lg text-white shadow-sm" href="index.php">
-                            <i class="bi bi-box-arrow-in-right"></i>
-                            <span>Mantenerse sin cuenta(De momento ;)</span>
-                        </a>
-                    </div>
+                   
 
                     <div class="text-center mt-4">
                         <p class="text-muted mb-3 fw-bold">Visita nuestras redes sociales</p>
@@ -139,11 +126,11 @@
                             <button class="social-btn facebook">
                                 <i class="bi bi-facebook fs-5"></i>
                             </button>
-                          
+                           
                             <button class="social-btn twitter">
                                 <i class="bi bi-twitter fs-5"></i>
                             </button>
-                          
+                           
                             <button class="social-btn instagram">
                                 <i class="bi bi-instagram fs-5"></i>
                             </button>

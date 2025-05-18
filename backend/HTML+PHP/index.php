@@ -1,7 +1,9 @@
 <?php
     include_once '../PHP/conexion.php';
     session_start();
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,12 +15,15 @@
     <link rel="stylesheet" href="../../assets/css/inicio.css">
     <link rel="stylesheet" href="../../assets/css/inicio_movil.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+
 </head>
 <body>
     <section class="cabecera" id="inicio">
         <nav class="navbar navbar-expand-md">
             <div class="container-fluid d-flex justify-content-between align-items-center">
-                <a href="Inicio.php">
+                <a href="Inicio.php" data-aos="fade-up" data-aos-duration="1000">
                     <img src="../../assets/img/portal_noticias.webp" alt="" class="logo" width="160px">
                 </a>
 
@@ -32,7 +37,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
                     </div>
 
-                    <div class="offcanvas-body text-center">
+                    <div class="offcanvas-body text-center" data-aos="fade-right" data-aos-duration="1000">
                         <ul class="navbar-nav justify-content-end flex-grow-1 3">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#inicio">Incio</a>
@@ -52,6 +57,8 @@
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="../PHP/cerrar_sesion.php">Cerrar Sesion</a></li>
                                         <li><a class="dropdown-item" href="registro.php">Registro</a></li>
+                                        <li><a class="dropdown-item" href="contraseña.php">Nueva clave</a></li>
+                                        
                                     </ul>
                                 </li>
                                 ';
@@ -60,6 +67,7 @@
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hola, ' . htmlspecialchars($_SESSION['nombre_usuario']) . '</a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="../PHP/cerrar_sesion.php">Cerrar Sesion</a></li>
+                                        <li><a class="dropdown-item" href="contraseña.php">Nueva clave</a></li>
                                     </ul>
                                 </li>
                                 ';
@@ -79,7 +87,7 @@
             </div>
         </nav>
 
-        <div class="contenido-texto container-fluid">
+        <div class="contenido-texto container-fluid" data-aos="fade-up" data-aos-duration="1000">
             <h1>¡Bienvenidos al Portal De noticias, el portal donde la informacion nunca duerme!</h1>
             <p>Preparate para enterarte de las ultimas, emociantes y frescas novedades que te mantendran al borde del asiento. Ademas, tambies puedes llegar a conseguir tu propio espacio para informar de algo que te apasione. ¿Quieres descubrir como?</p>
             <a href="#dedicacion"><button type="button" class="btn btn-lg">¡Que interesante!</button></a>
@@ -88,7 +96,7 @@
 
     <section class="contenedor container-fluid text-center" id="dedicacion">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6" data-aos="zoom-in-up" data-aos-duration="1000">
                 <h1> ¿A que nos dedicamos?</h1>
                 <div class="texto-body">
                     <p>Nuestra pagina se dedica a traer toda la informacion que vaya ocurriendo en el dia a dia de una forma directa, original y con un toque fresco para todo el público.</p>
@@ -98,23 +106,24 @@
                 </div>
             </div>
 
-            <div class="imagenes d-flex flex-column col-lg-6" >
+            <div class="imagenes d-flex flex-column col-lg-6" data-aos="zoom-out-down" data-aos-duration="1000" >
                 <img class="img-fluid" src="../../assets/img/prueba1.webp" width="400x" alt="">
-                <img class="imagen_clave img-fluid" src="../../assets/img/prueba2.webp" width="370px" height="200px" alt="">
+                <img class="imagen_clave img-fluid" src="../../assets/img/prueba2.webp" width="370px" height="200px" alt="" >
             </div>
             
         </div>
     </section>
 
     <section class="contenedor container-fluid text-center" id="categorias">
-        <h1>Noticias</h1>
-        <div class="texto-body-2">
+        
+        <div class="texto-body-2" data-aos="zoom-out" data-aos-duration="1000">
+            <h1>Noticias</h1>
             <p>Si has llegado hasta aqui es por que la intriga te puede. A continuacion, presentamos las categorias de noticias en las que podras navegar en nuestro portal.</p>
             <p>Haz click en cada boton para saber que temas se trataran en cada portal</p>
         </div>
         
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4" data-aos="zoom-in-up" data-aos-duration="1000">
                 <div class="carta">
                     <img class="clave" src="../../assets/img/fondo_corazon.webp" alt="Imagen de artículo">
                     <img class="logito" src="../../assets/img/portal_corazon.webp"  alt="Logo del portafolio">
@@ -145,7 +154,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-4" data-aos="zoom-in-up" data-aos-duration="1000">
                 <div class="carta">
                     <img class="clave" src="../../assets/img/fondo_Informativos.webp" alt="Imagen de artículo">
                     <img class="logito" src="../../assets/img/portal_informativos.webp"  alt="Logo del portafolio">
@@ -179,7 +188,7 @@
             </div>
 
 
-            <div class="col-lg-4">
+            <div class="col-lg-4" data-aos="zoom-in-up" data-aos-duration="1000">
                 <div class="carta">
                     <img class="clave" src="../../assets/img/fondo_delicias.webp" alt="Imagen de artículo">
                     <img class="logito" src="../../assets/img/portal_delicias.webp"  alt="Logo del portafolio">
@@ -214,7 +223,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6" data-aos="zoom-in-up" data-aos-duration="1000">
                 <div class="carta">
                     <img class="clave" src="../../assets/img/fondo_gamer.webp" alt="Imagen de artículo">
                     <img class="logito" src="../../assets/img/portal_gaming.webp"  alt="Logo del portafolio">
@@ -247,7 +256,7 @@
                 </div>
             </div>
         
-            <div class="col-lg-6">
+            <div class="col-lg-6" data-aos="zoom-in-up" data-aos-duration="1000">
                 <div class="carta">
                     <img class="clave" src="../../assets/img/fondo_comunidad.webp" alt="Imagen de artículo">
                     <img class="logito" src="../../assets/img/portal_elite.webp"  alt="Logo del portafolio">
@@ -285,53 +294,57 @@
         </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer" data-aos="fade-down" data-aos-duration="1000">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-4 mb-4 text-center" data-aos="fade-down" data-aos-duration="1200">
                     <img src="../../assets/img/portal_noticias.webp"class="img-fluid mb-4" width="200px;">
                 </div>
                 
-                <div class="col-lg-2 col-md-4 col-6 mb-4">
-                    <h5 class="mb-3">Enlaces</h5>
-                    <ul class="list-unstyled">
+                <div class=" col-lg-2 col-md-4 col-6 mb-4 text-center ">
+                    <h5 class="mb-3" data-aos="fade-down" data-aos-duration="1200">Enlaces</h5>
+                    <ul class="list-unstyled" data-aos="fade-down" data-aos-duration="1200">
                         <li class="mb-2"><a href="#inicio" class="text-white text-decoration-none"><i class="bi bi-house me-2"></i>INICIO</a></li>
                         <li class="mb-2"><a href="#categorias" class="text-white text-decoration-none"><i class="bi bi-newspaper me-2"></i>NOTICIAS</a></li>
-                        <?php
-                        if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
-                            $rol = $_SESSION['id_rol'];
-                            if ($rol == 1){
-                                echo ' <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hola, ' . htmlspecialchars($_SESSION['nombre_usuario']) . '</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../PHP/cerrar_sesion.php">Cerrar Sesion</a></li>
-                                    <li><a class="dropdown-item" href="registro.php">Registro</a></li>
-                                </ul>
-                            </li>
-                            ';
-                            } elseif($rol == 2) {
-                                echo ' <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hola, ' . htmlspecialchars($_SESSION['nombre_usuario']) . '</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../PHP/cerrar_sesion.php">Cerrar Sesion</a></li>
-                                </ul>
-                            </li>
-                            ';
+                         <?php
+                            if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
+                                $rol = $_SESSION['id_rol'];
+                                if ($rol == 1){
+                                    echo ' 
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> Hola, ' . htmlspecialchars($_SESSION['nombre_usuario']) . '</button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="../PHP/cerrar_sesion.php">Cerrar Sesion</a></li>
+                                            <li><a class="dropdown-item" href="registro.php">Registro</a></li>
+                                            <li><a class="dropdown-item" href="contraseña.php">Nueva Clave</a></li>
+                                        </ul>
+                                    </div>
+                                    ';
+                                } elseif($rol == 2) {
+                                    echo '
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> Hola, ' . htmlspecialchars($_SESSION['nombre_usuario']) . '</button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="../PHP/cerrar_sesion.php">Cerrar Sesion</a></li>
+                                            <li><a class="dropdown-item" href="contraseña.php">Nueva Clave</a></li>
+                                        </ul>
+                                    </li>
+                                    ';
+                                }
+                            } else {
+                                echo '
+                                <li class="mb-2">
+                                    <a class="text-white text-decoration-none" href="registro.php"><i class="bi bi-box-arrow-in-right me-2"></i>INICIAR SESION / REGISTRO</a>
+                                </li>
+                                ';
                             }
-                        } else {
-                            echo '
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="registro.php">Iniciar Sesion/Registrarse</a>
-                            </li>';
-                        }
-                            
                         ?>
                     </ul>
                 </div>
 
-                <div class="col-lg-2 col-md-4 col-6 mb-4">
-                    <h5 class="mb-3">Categorias de Notcias</h5>
-                    <ul class="list-unstyled">
+                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" >
+                    <h5 class="mb-3" data-aos="fade-down" data-aos-duration="1200">Categorias</h5>
+                    <ul class="list-unstyled" data-aos="fade-down" data-aos-duration="1200">
                         <li class="mb-2"><a href="Titulares_corazon.php" class="text-white text-decoration-none"><i class="bi bi-heart me-2"></i>CORAZON</a></li>
                         <li class="mb-2"><a href="Titulares_informativos.php" class="text-white text-decoration-none"><i class="bi bi-newspaper me-2"></i>INFORMATIVOS</a></li>
                         <li class="mb-2"><a href="Titulares_delicias.php" class="text-white text-decoration-none"><i class="bi bi-egg-fried me-2"></i>DELICIAS</a></li>
@@ -350,29 +363,20 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-4 mb-4">
-                    <h5 class="mb-3">¡Visita nuestras redes sociales!</h5>
-                    <div class="d-flex gap-3 mb-3">
-                        <div class="social-buttons">
-                            <button class="social-btn facebook">
-                                <a href="https://facebook.com" target="_blank" class="text-white"> <i class="bi bi-facebook fs-5"></i></a>
-                            </button>
-                            <button class="social-btn twitter">
-                                <a href="https://x.com" target="_blank" class="text-white"><i class="bi bi-twitter fs-5"></i></a>
-                            </button>
-                
-                            <button class="social-btn instagram">
-                                <a href="https://instagram.com" target="_blank" class="text-white"><i class="bi bi-instagram fs-5"></i></a>  
-                            </button>
-                        </div>
-                    </div>
+                <div class="col-lg-2 col-md-4 mb-4 text-center" data-aos="fade-down" data-aos-duration="1200">
+                    <h5 class="mb-3">¡Visita nuestro canal oficial!</h5>
+                    <a href="https://discord.gg/WgHjZRWM" target="_blank" class="text-white btn facebook "> <i class="fab fa-discord "></i></a>                  
                 </div>
             </div>
         </div>
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <script>
+        AOS.init();
+    </script>
 
 </body>
 </html>
