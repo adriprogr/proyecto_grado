@@ -1,5 +1,6 @@
 <?php
     include_once '../PHP/conexion.php';
+    include_once '../PHP/funciones_noticias.php';
     session_start();
 
 
@@ -10,20 +11,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Titulares Gamer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/css/Titulares_gamer.css">
     <link rel="stylesheet" href="../../assets/css/Titulares_movil.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../../assets/icons/portal_gaming.ico">
 
 
 </head>
 
 <body>
-    <section class="cabecera" id="inicio">
-        <!--Contenedor que inclute el fondo del header y que contendra toda la estructura del header con sus elementos-->
+    <!-- Seccion perteneciente a la cabecera -->
+    <section class="cabecera" id="inicio"> <!--Contenedor que incluye el fondo del header y que contendra toda la estructura del header con sus elementos-->
         <!-- Barra de navegacion-->
         <nav class="navbar navbar-expand-md "> <!--Empiezo a definir el header diciendo que se va a expandir hasta los dispositivos medianos-->
             <div class="container-fluid d-flex justify-content-between align-items-center"> <!--Contenedor donde se ajojara todo el contenido. Estos tienen estilos de bootstrap aplicando un display flex donde el contenido estara separado entre ellos-->
@@ -46,7 +48,7 @@
                     <div class="offcanvas-body text-center">
                         <ul class="navbar-nav justify-content-end flex-grow-1 3">
                             <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="#inicio">Incio</a>
+                                <a class="nav-link " aria-current="page" href="../../index.php">Incio</a>
                             </li>
 
                             <li class="nav-item">
@@ -93,14 +95,14 @@
         <div class=" contenido-texto container-fluid">
             <h1 data-aos="fade-up" data-aos-duration="1000">¡Bienvenidos al Portal Gaming, donde las noticias de videojuegos estaran a otro nivel </h1>
             <p data-aos="fade-up" data-aos-duration="1000">En este portal publicaremos las noticias que giran en torno al mundo de los videojuegos como curiosidades, noticias y lanzamientos.</p>    
-             <a href="#Titulares"><button type="button" data-aos="fade-up" data-aos-duration="1000" class="btn btn-lg mb-4">¡Echar un vistazo!</button></a>
+            <a href="#Titulares"><button type="button" data-aos="fade-up" data-aos-duration="1000" class="btn btn-lg mb-4">¡Echar un vistazo!</button></a>
             <?php
                 if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
                     $rol = $_SESSION['id_rol'];
                     if ($rol == 1){           
                         // Formulario para implementar los titulares y noticias         
                         echo '
-                        <button data-aos="fade-up" data-aos-duration="1000" class="btn btn-primary disposicion mb-4"  data-bs-target="#modal1" data-bs-toggle="modal">Agregar Titular Y Noticia</button>
+                        <button data-aos="fade-up" data-aos-duration="1000" class="btn btn-lg mb-4"  data-bs-target="#modal1" data-bs-toggle="modal">Agregar Titular Y Noticia</button>
                         <!--Seccion de agregar titulares y noticias -->
                         <div class="modal fade" id="modal1"> <!--Abrimos la etiqueta modal-->
                             <div class="modal-dialog modal-dialog-centered"> <!--Especificamos el entorno de la modal-->
@@ -153,7 +155,7 @@
 
                                             <div class="mb-3">
                                                 <label for="Titulo" class="form-label">Introduzca el titulo principal de la noticia</label>
-                                                <input type="text" class="form-control"  name="titulo_1" placeholder="Titulo Princiapl" required>
+                                                <input type="text" class="form-control"  name="titulo_1" placeholder="Titulo Principal" required>
                                             </div>
 
                                             <div class="mb-3">
@@ -217,7 +219,7 @@
         </div>            
     </section>
 
-    <!--Carrusel-->
+    <!--Carrusel y primera parte del body-->
     <div id="carouselExampleAutoplaying" class="container carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -228,15 +230,14 @@
         <h1 class="text-center" data-aos="zoom-in-up" data-aos-duration="1000">Noticias Destacadas</h1>
         
         <div class="carousel-inner" data-bs-interval="5000" data-bs-interval="5000" data-aos="zoom-in-up" data-aos-duration="1000" id="Titulares">
-        <?php
-            $consulta_activa = "SELECT * FROM titulares WHERE id_categoria = 1 ORDER BY fecha DESC LIMIT 1";
-            $consulta_normal = "SELECT * FROM titulares WHERE id_categoria = 1 ORDER BY fecha DESC LIMIT 2 OFFSET 1";
-            $resultado_active = mysqli_query($conexion, $consulta_activa);
-            $resultado_normal = mysqli_query($conexion, $consulta_normal);
+       <?php
+            $id_categoria = 4;
+            $primer_carousel = primer_titular_carousel($conexion, $id_categoria);
+            $carousel_restante = carousel_faltante($conexion, $id_categoria);
             
-            if(mysqli_num_rows($resultado_active) > 0 && mysqli_num_rows($resultado_normal) > 0){
+            if(mysqli_num_rows($primer_carousel) > 0 && mysqli_num_rows($carousel_restante) > 0){
 
-                while ($row = mysqli_fetch_assoc($resultado_active)) {
+                while ($row = mysqli_fetch_assoc($primer_carousel)) { // Bucle para la primera posicion del carousel
                     echo ' 
                     <div class="carousel-item active ">
                         <img src="../titulares_noticias/'. $row['Imagen'] . '" class="d-block w-100" style="min-height: 400px; ">
@@ -247,7 +248,7 @@
                                 <a href="Noticias_gamer.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>';
                                 
 
-                                if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
+                                if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){ // Si el usuario es administrador tendra la opcion de eliminar la noticia
                                     $rol = $_SESSION['id_rol'];
                                     
                                     if ($rol == 1){
@@ -262,7 +263,7 @@
                     echo '</div> </div> </div>';
                 }
                 
-                while ($row = mysqli_fetch_assoc($resultado_normal)) {
+                while ($row = mysqli_fetch_assoc($carousel_restante)) { // Bucle para la segunda y tercera posicion del carousel
                     echo ' 
                     <div class="carousel-item">
                         <img src="../titulares_noticias/'. $row['Imagen'] . '" class="d-block w-100" alt="...">
@@ -304,57 +305,59 @@
         </button>
     </div>
 
-    <!--Mas noticias-->
+    <!--Mas noticias y segunda parte del body-->
     <section class="container ">
         <h1 class="text-center">Mas noticias</h1>
         <div class="row">    
         <?php
-            $consulta_final = "SELECT * FROM titulares WHERE id_categoria = 1 ORDER BY fecha DESC LIMIT 100 OFFSET 3";
-            $resultado_normal = mysqli_query($conexion, $consulta_final);
-
-           
-            while ($row = mysqli_fetch_assoc($resultado_normal)) {
-                echo '
-                <div class="col-lg-6 col-md-6 mb-4">
-                    <div class="carta" data-aos="zoom-in-up" data-aos-duration="1000"> 
-                        <img class="clave" src="../titulares_noticias/'. $row['Imagen'] . '" class="d-block w-100" alt="...">
-                        <img class="logito" src="../../assets/img/portal_gaming.webp"  alt="Logo del portafolio">
-                        <div class="texto-carta">
-                            <span class="categoria">Gaming</span>
-                            <h2 class="titulo">'  . $row['nombre_titular']. ' </h2>
-                            <p>' .$row['introduccion'] . '</p>
-                            <div class="botones">
-                                <a href="Noticias_gamer.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>';  
-                                if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
-                                    $rol = $_SESSION['id_rol'];
-                                
-                                    if ($rol == 1){
-                                        echo '
-                                        <form method = "POST" class="" action="../PHP/borrar_titulares_noticias.php" onsubmit="return confirm(\'¿Estas seguro de eliminar este titular y noticia?\')">
-                                            <input type = "hidden" name="id_titular" value="' . $row['id_titular'] .'">
-                                            <button type = "submit" class="btn"> Eliminar</button>
-                                        </form>
-                                        ';
+            $id_categoria = 4;
+            $noticias = mas_noticias($conexion, $id_categoria);
+            if(mysqli_num_rows($noticias) > 0){
+                while ($row = mysqli_fetch_assoc($noticias)) { // Bucle para mostrar las noticias que no esten en el carousel
+                    echo '
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="carta" data-aos="zoom-in-up" data-aos-duration="1000"> 
+                            <img class="clave" src="../titulares_noticias/'. $row['Imagen'] . '" class="d-block w-100" alt="...">
+                            <img class="logito" src="../../assets/img/portal_gaming.webp"  alt="Logo del portafolio">
+                            <div class="texto-carta">
+                                <span class="categoria">Gaming</span>
+                                <h2 class="titulo">'  . $row['nombre_titular']. ' </h2>
+                                <p>' .$row['introduccion'] . '</p>
+                                <div class="botones">
+                                    <a href="Noticias_gamer.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>';  
+                                    if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
+                                        $rol = $_SESSION['id_rol'];
+                                    
+                                        if ($rol == 1){
+                                            echo '
+                                            <form method = "POST" class="" action="../PHP/borrar_titulares_noticias.php" onsubmit="return confirm(\'¿Estas seguro de eliminar este titular y noticia?\')">
+                                                <input type = "hidden" name="id_titular" value="' . $row['id_titular'] .'">
+                                                <button type = "submit" class="btn"> Eliminar</button>
+                                            </form>
+                                            ';
+                                        }
                                     }
-                                }
-                echo '</div> </div> </div> </div>';
+                    echo '</div> </div> </div> </div>';
+                } 
+            } else {
+                echo '<p class="text-center"> No hay noticias para mostrar</p>';
             }
     ?>
         </div>
     </section>
 
     <!--Pie de pagina-->
-    <footer class="footer" data-aos="fade-down" data-aos-duration="800">
+    <footer class="footer" data-aos="fade-up" data-aos-duration="600">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 text-center">
                     <img src="../../assets/img/noticias_gamer.webp" class="img-fluid mb-4" width="400px;">
                 </div>
 
-                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" data-aos="fade-down" data-aos-duration="800" >
+                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" data-aos="fade-up" data-aos-duration="600" >
                     <h5 class="mb-3">Enlaces</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.php" class="text-white text-decoration-none"><i class="bi bi-house me-2"></i>INICIO</a></li>
+                        <li class="mb-2"><a href="../../index.php" class="text-white text-decoration-none"><i class="bi bi-house me-2"></i>INICIO</a></li>
                         <li class="mb-2"><a href="#Titulares" class="text-white text-decoration-none"><i class="bi bi-newspaper me-2"></i>NOTICIAS</a></li>
                        <?php
                             if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
@@ -394,7 +397,7 @@
                     </ul>
                 </div>
           
-                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" data-aos="fade-down" data-aos-duration="800" >
+                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" data-aos="fade-up" data-aos-duration="600" >
                     <h5 class="mb-3">Categorias</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="Titulares_corazon.php" class="text-white text-decoration-none"><i class="bi bi-heart me-2"></i>CORAZÓN</a></li>
@@ -415,9 +418,9 @@
                     </ul>
                 </div>
           
-                <div class="col-lg-2 col-md-4 mb-4 text-center" data-aos="fade-down" data-aos-duration="1200">
+                <div class="col-lg-2 col-md-4 mb-4 text-center" data-aos="fade-up" data-aos-duration="600">
                     <h5 class="mb-3">¡Visita nuestro canal oficial!</h5>
-                    <a href="https://discord.gg/WgHjZRWM" target="_blank" class="text-white btn facebook "> <i class="fab fa-discord "></i></a>                  
+                    <a href="https://discord.gg/By3qXUgV5P" target="_blank" class="text-white btn gamimng "> <i class="fab fa-discord "></i></a>                  
                 </div>
             </div>
         </div>

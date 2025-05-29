@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if($usuario){
         if(password_verify($contrasena, $usuario['contraseña'])){ /*Verifico si la contraseña que se ha introducido coincide con la encriptada almacenada en la base de datos*/
             guardar_datos($usuario);
-            header('Location: ../HTML+PHP/Index.php');
+            header('Location: ../../index.php');
         } else {
             echo '<script>
             alert("La contraseña no es correcta. Intentalo de nuevo");

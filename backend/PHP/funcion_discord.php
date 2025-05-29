@@ -4,27 +4,31 @@ function enviar_notificacion_discord_principal($nombre_titular, $introduccion, $
 
     switch($id_categoria){
         case 1: //Pertenece al bot de la categoria de corazon
-            $Referencia_discord = "https://discord.com/api/webhooks/1370408760333308004/AOrn16J7iqvNHawmAVubEmvyicFF2TiJOo77q5hkQY0qRJSsXUu5H7hxdXu0p2YgYPzM";
+            $Referencia_discord = "";
             break;
 
         case 2: //Pertenece al bot de la categoria de informativos
-            $Referencia_discord = "https://discord.com/api/webhooks/1370408831934529536/XKqfelAH6OIUxPcpH1YIXCYnTc5-ZKvXnqCnP-psDoaC3Vq1ucvmuinrixRQsyOUs4MW";
+            $Referencia_discord = "";
             break;
         
         case 3: //Pertenece al bot de la categoria de delicias
-            $Referencia_discord = "https://discord.com/api/webhooks/1370408896354717847/MlslmaCc1wWbDEml3-4xr1PFV2NavNyiZ8PEQ_eF9erqtDdVioGmloos0gZ0ev9Hp-ah";
+            $Referencia_discord = "";
             break;
 
         case 4: //Pertenece al bot de la categoria de gaming
-            $Referencia_discord = "https://discord.com/api/webhooks/1370408955435815103/-rESookIOvcH_4XtOOX7XYiBmkGL7wDJOtLuvnaXY7Ty8_KRwJwP-ARzf1bWuWHYPCVS";
+            $Referencia_discord = "";
             break;
 
         case 5: //Pertenece al bot de la categoria de elite
-            $Referencia_discord = "https://discord.com/api/webhooks/1370408997118546011/WoA4AItQ5xhFnJRB9BNqne8u4wGVuYMLRg5bYWST0RHZTE_QUx1-8jkH-D4uoXeoMvWm";
+            $Referencia_discord = "";
             break;
     }
+    
+    if(empty($Referencia_discord)){
+        return; // Esto permite seguir insertando noticias en la base de datos incluso si no estan las referencias de los bots incluidos.
+    }
 
-    $data = json_encode([
+    $data = json_encode([ // envio el mensaje a traves de json
         "content" => "Hay una nueva noticia disponible en la web. Hecha un vistazo",
         "embeds" => [[
             "title" => $nombre_titular,
@@ -33,7 +37,7 @@ function enviar_notificacion_discord_principal($nombre_titular, $introduccion, $
         ]]
     ]);
     
-    $options =[
+    $options =[ // Detallo el protocolo
         'http' => [
             'header' => "Content-Type: application/json\r\n",
             'method' => 'POST',
@@ -41,6 +45,6 @@ function enviar_notificacion_discord_principal($nombre_titular, $introduccion, $
         ]
     ];
 
-    $envio = stream_context_create($options);
-    file_get_contents($Referencia_discord, false, $envio);
+    $envio = stream_context_create($options); 
+    file_get_contents($Referencia_discord, false, $envio); // Enviar el mensaje al canal de discord que corresponda
 }

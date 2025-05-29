@@ -1,28 +1,43 @@
 <?php
     include_once '../PHP/conexion.php';
+    include_once '../PHP/funciones_noticias.php';
     session_start();
 
+    // Funcion para obtener el id_titular y poder poner el nombre de la noticia como el titulo de la pagina
+    $id_titular = $_GET['id_titular'];
+    $noticias = titulares($conexion, $id_titular);
+
+    if(mysqli_num_rows($noticias) > 0){
+        while($row = mysqli_fetch_assoc($noticias)) {
+            $titulo_pagina = $row['titulo_1'];
+        }
+    }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title><?php echo htmlspecialchars($titulo_pagina); ?> </title>
+    <!-- Libreria de bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!-- CSS Personalizado -->
     <link rel="stylesheet" href="../../assets/css/Noticias_gamer.css">
     <link rel="stylesheet" href="../../assets/css/Noticias_movil.css">
+    <!-- Libreria AOS -->    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Libreria de fuentes e iconos -->    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../../assets/icons/portal_gaming.ico">
 
 </head>
 
 <body>
-    <section class="cabecera" id="inicio">
-        <!--Contenedor que inclute el fondo del header y que contendra toda la estructura del header con sus elementos-->
+    <!-- Seccion perteneciente a la cabecera -->
+    <section class="cabecera" id="inicio"><!--Contenedor que incluye el fondo del header y que contendra toda la estructura del header con sus elementos-->
         <!-- Barra de navegacion-->
         <nav class="navbar navbar-expand-md ">
             <!--Empiezo a definir el header diciendo que se va a expandir hasta los dispositivos medianos-->
@@ -49,7 +64,7 @@
                     <div class="offcanvas-body text-center" data-aos="fade-right" data-aos-duration="1000">
                         <ul class="navbar-nav justify-content-end flex-grow-1 3">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="index.php">Incio</a>
+                                <a class="nav-link" aria-current="page" href="../../index.php">Incio</a>
                             </li>
 
                             <li class="nav-item">
@@ -94,6 +109,7 @@
             </div>
         </nav>
     </section>
+    <!-- Seccion perteneciente a la segunda parte del body -->
 
     <section class="container titular mt-4">
         <?php
@@ -104,11 +120,10 @@
             }
 
             if($id_titular > 0) {
-                $consulta = "SELECT * FROM noticias where id_titular = $id_titular";
-                $resultado = mysqli_query($conexion, $consulta);
+                $noticias = titulares($conexion, $id_titular);
 
-                if(mysqli_num_rows($resultado) > 0) {
-                    while($row = mysqli_fetch_assoc($resultado)) {
+                if(mysqli_num_rows($noticias) > 0) {
+                    while($row = mysqli_fetch_assoc($noticias)) {
                        echo ' 
                        <article>
                             <h1 class="titulo-articulo"> ' . $row['titulo_1'] . '</h1>
@@ -137,68 +152,51 @@
         ?>
     </section>
 
+    <!-- Seccion perteneciente a la segunda parte del body -->
     <section class="container">
         <h1 class="text-center">Mas noticias</h1>
         <div class="row">
-            <div class="col-lg-4">
-                <div class="carta">
-                    <img class="clave rounded" src="../../assets/img/fondo_gamer.webp" alt="Imagen de artículo">
-                    <img class="logito" src="../../assets/img/portal_gaming.webp" alt="Logo del portafolio">
-                    <div class="texto-carta">
-                        <span class="categoria">GAMER</span>
-                        <h2 class="titulo">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, doloremque!
-                        </h2>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                        <a href="../Noticias/Noticias_gamer.php" class="btn">¡Quiero saber más!</a>
-                    </div>
-                </div>
-            </div>
+            <?php
+                $id_categoria = 4;
+                $random = noticias_random($conexion, $id_titular, $id_categoria);
 
-            <div class="col-lg-4">
-                <div class="carta">
-                    <img class="clave rounded" src="../../assets/img/fondo_gamer.webp" alt="Imagen de artículo">
-                    <img class="logito" src="../../assets/img/portal_gaming.webp" alt="Logo del portafolio">
-                    <div class="texto-carta">
-                        <span class="categoria">GAMER</span>
-                        <h2 class="titulo">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, doloremque!
-                        </h2>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                        <a href="../Noticias/Noticias_gamer.php" class="btn">¡Quiero saber más!</a>
+                while ($row = mysqli_fetch_assoc($random)) { // Bucle para mostrar las noticias que no esten en el carousel
+                    echo '
+                    <div class="col-lg-4">
+                        <div class="carta" data-aos="zoom-in-up" data-aos-duration="800"> 
+                            <img class="clave" src="'. $row['Imagen'] . '" class="d-block w-100" alt="...">
+                            <img class="logito" src="../../assets/img/portal_corazon.webp"  alt="Logo del portafolio">
+                            <div class="texto-carta ">
+                                <span class="categoria">GAMER</span>
+                                <h2 class="titulo">'  . $row['nombre_titular']. ' </h2>
+                                <p>' .$row['introduccion'] . '</p>
+                                <div class="botones">
+                                    <a href="Noticias_gamer.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>  
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="carta">
-                    <img class="clave rounded" src="../../assets/img/fondo_gamer.webp" alt="Imagen de artículo">
-                    <img class="logito" src="../../assets/img/portal_gaming.webp" alt="Logo del portafolio">
-                    <div class="texto-carta">
-                        <span class="categoria">GAMER</span>
-                        <h2 class="titulo">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, doloremque!
-                        </h2>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                        <a href="../Noticias/Noticias_gamer.php" class="btn">¡Quiero saber más!</a>
-                    </div>
-                </div>
-            </div>
+                    ';
+                }
+            ?>
         </div>
     </section>
 
 
     <!--Pie de pagina-->
-    <footer class="footer" data-aos="fade-down" data-aos-duration="800">
+     <footer class="footer mt-4 " data-aos="fade-up" data-aos-duration="600">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 text-center">
                     <img src="../../assets/img/noticias_gamer.webp" class="img-fluid mb-4" width="400px;">
                 </div>
-
-                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" data-aos="fade-down" data-aos-duration="800" >
+                
+                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" data-aos="fade-up" data-aos-duration="600" >
                     <h5 class="mb-3">Enlaces</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.php" class="text-white text-decoration-none"><i class="bi bi-house me-2"></i>INICIO</a></li>
-                        <li class="mb-2"><a href="Titulares_gamer.php" class="text-white text-decoration-none"><i class="bi bi-newspaper me-2"></i>NOTICIAS</a></li>
-                         <?php
+                        <li class="mb-2"><a href="../../index.php" class="text-white text-decoration-none"><i class="bi bi-house me-2"></i>INICIO</a></li>
+                        <li class="mb-2"><a href="Titulares_delicias.php" class="text-white text-decoration-none"><i class="bi bi-newspaper me-2"></i>NOTICIAS</a></li>
+                        <?php
                             if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
                                 $rol = $_SESSION['id_rol'];
                                 if ($rol == 1){
@@ -235,14 +233,14 @@
                         ?>
                     </ul>
                 </div>
-
-                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" data-aos="fade-down" data-aos-duration="800" >
+                
+                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" data-aos="fade-up" data-aos-duration="600" >
                     <h5 class="mb-3">Categorias</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="Titulares_corazon.php"class="text-white text-decoration-none"><i class="bi bi-heart me-2"></i>CORAZÓN</a></li>
+                        <li class="mb-2"><a href="Titulares_corazon.php" class="text-white text-decoration-none"><i class="bi bi-heart me-2"></i>CORAZÓN</a></li>
                         <li class="mb-2"><a href="Titulares_informativos.php" class="text-white text-decoration-none"><i class="bi bi-newspaper me-2"></i>INFORMATIVOS</a></li>
-                        <li class="mb-2"><a href="Titulares_delicias.php"class="text-white text-decoration-none"><i class="bi bi-egg-fried me-2"></i>DELICIAS</a></li>
-                        <li class="mb-2"><a href="Titulares_gamer.php"class="text-white text-decoration-none"><i class="bi bi-controller me-2"></i>GAMING</a></li>
+                        <li class="mb-2"><a href="Titulares_delicias.php" class="text-white text-decoration-none"><i class="bi bi-egg-fried me-2"></i>DELICIAS</a></li>
+                        <li class="mb-2"><a href="Titulares_gamer.php" class="text-white text-decoration-none"><i class="bi bi-controller me-2"></i>GAMING</a></li>
                         <?php
                         if(isset($_SESSION['nombre_usuario'])) {
                             ?>
@@ -250,16 +248,17 @@
                             <?php
                         } else {
                             ?>
-                                <li class="mb-2"><a href="" class="text-white text-decoration-none" onclick="alert('Debes iniciar sesion para acceder a este portal')"><i class="bi bi-people me-2"></i>ÉLITE</a></li>
+                                <li class="mb-2"><a href="" class="text-white text-decoration-none"  onclick="alert('Debes iniciar sesion para acceder a este portal')"><i class="bi bi-people me-2"></i>ÉLITE</a></li>
                             <?php
                         }
                         ?>
                     </ul>
                 </div>
-
-                <div class="col-lg-2 col-md-4 mb-4 text-center" data-aos="fade-down" data-aos-duration="1200">
+            
+            
+                <div class="col-lg-2 col-md-4 mb-4 text-center" data-aos="fade-up" data-aos-duration="600">
                     <h5 class="mb-3">¡Visita nuestro canal oficial!</h5>
-                    <a href="https://discord.gg/WgHjZRWM" target="_blank" class="text-white btn facebook "> <i class="fab fa-discord "></i></a>                  
+                    <a href="https://discord.gg/By3qXUgV5P" target="_blank" class="text-white btn facebook "> <i class="fab fa-discord "></i></a>                  
                 </div>
             </div>
         </div>

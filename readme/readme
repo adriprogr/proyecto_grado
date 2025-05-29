@@ -66,6 +66,12 @@
     - He creado una nueva funcion en la que hago uso del bot de discord (Webhook). Este avisara por el canal correspondiente del servidor de discord con una notificacion cuando se suba un titular y noticia a la base de datos.
     - He echo uso de la libreria de AOS para implementar algunas animaciones a la web
     - Actualmente he subido una prueba para subir la web a internet a traves del hosting infinity free. El enlace es el siguiente
-        proyecto-prueba22.infinityfreeapp.com
-    - El problema que he encontrado es que el bot de discord no es compatible con este hosting y todavia estoy buscando alternativa
-    - En el hosting hago uso del servidor sql propio que tiene el host(PHPMYAdmin) y la subida de archivos la he realizado a traves de filezilla mediante ftp
+    - El problema que he encontrado es que el bot de discord no es compatible con este hosting
+    - En el hosting hago uso del servidor sql propio que tiene el host y la subida de archivos la he realizado a traves de filezilla mediante ftp
+
+
+#QUINTA ENTREGA
+    - Arreglo de pie de páginas
+    - Bases de datos con contenido
+    - Host Funcionando Completamente
+        Enlace  portal-noticias.infinityfreeapp.com

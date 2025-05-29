@@ -14,6 +14,17 @@
  .dropdown-menu {
     min-width: auto;
  }
+ .offcanvas-body{
+    animation: opacidad 1s ease;
+ }
+ @keyframes opacidad{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+ }
  .offcanvas-body .nav-link {
      color: white;
      font-weight: 500;
@@ -93,6 +104,7 @@
     background-color: #07855d;
     color: white;
 }
+
 
  /*¿Quienes Somos?*/
  .contenedor{
@@ -229,7 +241,7 @@
 
 /*Boton informativos*/
 .informativos{
-    background-color: rgb(50, 67, 226);
+    background-color: rgb(89, 105, 248);
     color: white;
 }
 .informativos:hover{
@@ -259,11 +271,11 @@
 
 /*Boton élite*/
 .élite{
-    background-color: rgb(63, 41, 27);
+    background-color: rgb(123, 84, 60);
     color: white;
 }
 .élite:hover{
-    background-color: rgb(136, 84, 68);
+    background-color: rgb(197, 122, 99);
     color: white;
 }
 

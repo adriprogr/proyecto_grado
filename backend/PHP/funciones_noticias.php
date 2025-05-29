@@ -114,7 +114,57 @@ function guardar_comentarios($conexion, $titular, $descripcion, $id_usuario){
     $insertar_comentarios -> execute();
     return $insertar_comentarios;
 }
+
+
+
+// FUNCIONES PARA EL CAROUSEL Y MOSTRAR TITULARES
+// Mostrar el primer titular para el carousel
+function primer_titular_carousel($conexion, $id_categoria){
+    // Consulta para seleccionar el titular mas reciente y colocarla en la primera posicion del carousel active de bootstrap
+    $consulta_activa = $conexion -> prepare("SELECT * FROM titulares WHERE id_categoria = ? ORDER BY fecha DESC LIMIT 1"); 
+    $consulta_activa -> bind_param('i', $id_categoria);
+    $consulta_activa -> execute();
+    $primer_carousel = $consulta_activa -> get_result();
+    return $primer_carousel;
+}
+
+// Mostrar el segundo y tercer titular para el carousel
+function carousel_faltante($conexion, $id_categoria){
+
+    $consulta_restante = $conexion -> prepare("SELECT * FROM titulares WHERE id_categoria = ? ORDER BY fecha DESC LIMIT 2 OFFSET 1"); 
+    $consulta_restante -> bind_param('i', $id_categoria);
+    $consulta_restante -> execute();
+    $carousel_restante = $consulta_restante -> get_result();
+    return $carousel_restante;
+
+}
+
+// Funcion para mostrar loa titulares restantes
+function mas_noticias($conexion, $id_categoria){
+    $consulta_noticias = $conexion -> prepare("SELECT * FROM titulares WHERE id_categoria = ? ORDER BY fecha DESC LIMIT 100 OFFSET 3");
+    $consulta_noticias -> bind_param('i', $id_categoria);
+    $consulta_noticias -> execute();
+    $mas_noticias = $consulta_noticias -> get_result();
+    return $mas_noticias;
+}
+
+// FUNCIONES PARA LAS NOTICIAS
+// Funcion para mostrar noticias y mostrar el titulo de la noticia en la ventana del navegador
+function titulares($conexion, $id_titular){
+    $consulta = $conexion -> prepare("SELECT * FROM noticias where id_titular = ?");
+    $consulta -> bind_param('i', $id_titular);
+    $consulta -> execute();
+    $consulta_noticias = $consulta -> get_result();
+    return $consulta_noticias;
+}
+
+// Funcion para mostrar noticias aleatorias
+function noticias_random($conexion, $id_titular, $id_categoria){
+    $consulta_aleatoria = $conexion -> prepare("SELECT * FROM titulares WHERE id_categoria = ? and id_titular != ? ORDER BY RAND() LIMIT 3 ");
+    $consulta_aleatoria -> bind_param('ii', $id_categoria, $id_titular);
+    $consulta_aleatoria -> execute();
+    $noticias_aleatorias = $consulta_aleatoria -> get_result();
+    return $noticias_aleatorias;
+}
+
 ?>
-
-
-

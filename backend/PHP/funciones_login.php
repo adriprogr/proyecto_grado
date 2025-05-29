@@ -83,7 +83,7 @@ function actualizar_contrasena($conexion, $correo, $contrasena){
     $contrasena_encriptada = password_hash($contrasena, PASSWORD_DEFAULT);
 
     $actualizar_contraseña = $conexion -> prepare("UPDATE usuarios SET contraseña = ? where email = ?");
-    $actualizar_contraseña -> bind_param("ss", $contrasena_encriptada, $correo,);
+    $actualizar_contraseña -> bind_param("ss", $contrasena_encriptada, $correo);
     $actualizar_contraseña -> execute();
 
     return $actualizar_contraseña; 

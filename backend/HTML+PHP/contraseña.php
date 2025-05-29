@@ -9,12 +9,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cambiar contraseña</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../assets/css/login.css">
     <link rel="stylesheet" href="../../assets/CSS/login_movil.css">
+    <link rel="icon" type="image/x-icon" href="../../assets/icons/portal_noticias.ico">
+
 
 
 </head>
@@ -72,7 +74,7 @@
             <div class="sesion">                 
                 <div class="card-body p-4">
                     <h2 class="text-center fw-bold">Cambiar la contraseña</h2>
-                    <p class="text-center">¿Te has olvidado la contraseña? No te preocupes. Introduce el correo vinculado a tu cuenta para crear una nueva contraseña</p>
+                    <p class="text-center">¿Te has olvidado la contraseña? No te preocupes. Introduce el correo vinculado a tu cuenta para establecer una nueva</p>
                     <form method="post" action="../PHP/recuperar_contrasena.php">
                         <div class="mb-4 input-group">
                             <span class="input-group-text bg-white">
@@ -120,20 +122,12 @@
                    
 
                     <div class="text-center mt-4">
-                        <p class="text-muted mb-3 fw-bold">Visita nuestras redes sociales</p>
+                        <p class="text-muted mb-3 fw-bold">Visita nuestro canal oficial</p>
                         <!-- Botones de redes sociales que antes estaban arriba -->
                         <div class="social-buttons">
-                            <button class="social-btn facebook">
-                                <i class="bi bi-facebook fs-5"></i>
-                            </button>
-                           
-                            <button class="social-btn twitter">
-                                <i class="bi bi-twitter fs-5"></i>
-                            </button>
-                           
-                            <button class="social-btn instagram">
-                                <i class="bi bi-instagram fs-5"></i>
-                            </button>
+                            <a class="social-btn facebook" href="https://discord.gg/By3qXUgV5P">
+                                <i class="bi bi-discord fs-5"></i>
+                            </a>
                         </div>
                     </div>
                 </div>

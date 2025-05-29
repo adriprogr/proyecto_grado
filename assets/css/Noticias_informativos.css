@@ -35,7 +35,7 @@ a{
   font-weight: 500;
 }
 .offcanvas-body .nav-link.active {
-  color: rgb(13, 193, 121);
+   color: rgb(181, 193, 13);
 }
 
 .offcanvas-body .nav-link:hover {

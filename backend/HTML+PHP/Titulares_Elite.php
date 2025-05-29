@@ -1,5 +1,7 @@
 <?php
     include_once '../PHP/conexion.php';
+    include_once '../PHP/funciones_noticias.php';
+
     session_start();
 
 
@@ -9,18 +11,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Titulares Élite</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/CSS/Titulares_elite.css">
     <link rel="stylesheet" href="../../assets/CSS/Titulares_movil.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../../assets/icons/portal_elite.ico">
 
 </head>
 
 <body>
-    <section class="cabecera" id="inicio"> <!--Contenedor que inclute el fondo del header y que contendra toda la estructura del header con sus elementos-->
+    <!-- Seccion perteneciente a la cabecera -->
+    <section class="cabecera" id="inicio"> <!--Contenedor que incluye el fondo del header y que contendra toda la estructura del header con sus elementos-->
         <!-- Barra de navegacion-->
         <nav class="navbar navbar-expand-md "> <!--Empiezo a definir el header diciendo que se va a expandir hasta los dispositivos medianos-->
             <div class="container-fluid d-flex justify-content-between align-items-center"> <!--Contenedor donde se ajojara todo el contenido. Estos tienen estilos de bootstrap aplicando un display flex donde el contenido estara separado entre ellos-->
@@ -47,7 +51,7 @@
                     <div class="offcanvas-body text-center" data-aos="fade-right" data-aos-duration="1000">
                         <ul class="navbar-nav justify-content-end flex-grow-1 3">
                             <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.php">Incio</a>
+                            <a class="nav-link" aria-current="page" href="../../index.php">Incio</a>
                             </li>
                                     
                             <li class="nav-item">
@@ -136,7 +140,7 @@
                                         
                                             <div class="mb-3">
                                                 <label for="Fecha" class="form-label">Introduzca la fecha de la noticia</label>
-                                                <input type="date" class="form-control"  name="fecha"  placeholder="Breve Introduccion"required>
+                                                <input type="datetime-local" class="form-control"  name="fecha"  placeholder="Breve Introduccion"required>
                                             </div>
 
                                             <div class="mb-3">
@@ -155,7 +159,7 @@
 
                                             <div class="mb-3">
                                                 <label for="Titulo" class="form-label">Introduzca el titulo principal de la noticia</label>
-                                                <input type="text" class="form-control"  name="titulo_1" placeholder="Titulo Princiapl" required>
+                                                <input type="text" class="form-control"  name="titulo_1" placeholder="Titulo Principal" required>
                                             </div>
 
                                             <div class="mb-3">
@@ -251,7 +255,7 @@
         </div>
     </section>
 
-    <!--Carrusel-->
+    <!--Carousel y primera parte del body-->
     <div id="carouselExampleAutoplaying" class="container carousel slide" data-aos="zoom-in-up" data-aos-duration="1000" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -261,14 +265,13 @@
         <h1 class="text-center">Noticias Destacadas</h1>
         <div class="carousel-inner" data-bs-interval="5000" id="Titulares">
         <?php
-            $consulta_activa = "SELECT * FROM titulares WHERE id_categoria = 1 ORDER BY fecha DESC LIMIT 1";
-            $consulta_normal = "SELECT * FROM titulares WHERE id_categoria = 1 ORDER BY fecha DESC LIMIT 2 OFFSET 1";
-            $resultado_active = mysqli_query($conexion, $consulta_activa);
-            $resultado_normal = mysqli_query($conexion, $consulta_normal);
+            $id_categoria = 5;
+            $primer_carousel = primer_titular_carousel($conexion, $id_categoria);
+            $carousel_restante = carousel_faltante($conexion, $id_categoria);
             
-            if(mysqli_num_rows($resultado_active) > 0 && mysqli_num_rows($resultado_normal) > 0){
+            if(mysqli_num_rows($primer_carousel) > 0 && mysqli_num_rows($carousel_restante) > 0){
 
-                while ($row = mysqli_fetch_assoc($resultado_active)) {
+                while ($row = mysqli_fetch_assoc($primer_carousel)) { // Bucle para la primera posicion del carousel
                     echo ' 
                     <div class="carousel-item active">
                         <img src="../titulares_noticias/'. $row['Imagen'] . '" class="d-block w-100">
@@ -277,7 +280,7 @@
                                 <p> ' .$row['introduccion'] . '</p>
                                 <div class="botones_carrusel">
                                     <a href="Noticias_elite.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>';
-                                    if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
+                                    if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){ // Si el usuario es administrador tendra la opcion de eliminar la noticia
                                         $rol = $_SESSION['id_rol'];
                                         
                                         if ($rol == 1){
@@ -291,7 +294,7 @@
                                     }
                     echo '</div> </div> </div>';
                 }
-                while ($row = mysqli_fetch_assoc($resultado_normal)) {
+                while ($row = mysqli_fetch_assoc($carousel_restante)) { // Bucle para la segunda y tercera posicion del carousel
                     echo ' 
                     <div class="carousel-item">
                         <img src="../titulares_noticias/'. $row['Imagen'] . '" class="d-block w-100" alt="...">
@@ -331,55 +334,59 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <!--Mas noticias-->
+    <!--Mas noticias y segunda parte del body-->
     <section class="container ">
         <h1 class="text-center" data-aos="zoom-in-up" data-aos-duration="1000">Mas noticias</h1>
         <div class="row">
-            <?php
-                $consulta_final = "SELECT * FROM titulares WHERE id_categoria = 1 ORDER BY fecha DESC LIMIT 100 OFFSET 3";
-                $resultado_normal = mysqli_query($conexion, $consulta_final);
+           <?php
+                $id_categoria = 5;
+                $noticias = mas_noticias($conexion, $id_categoria);
+                if(mysqli_num_rows($noticias) > 0){
 
-                while ($row = mysqli_fetch_assoc($resultado_normal)) {
-                    echo '
-                    <div class="container col-lg-6 col-md-6 mb-4 ">
-                        <div class="carta" data-aos="zoom-in-up" data-aos-duration="1000"> 
-                            <img class="clave" src="../titulares_noticias/'. $row['Imagen'] . '" class="d-block w-100" alt="...">
-                            <img class="logito" src="../../assets/img/portal_elite.webp"  alt="Logo del portafolio">
-                            <div class="texto-carta">
-                                <span class="categoria">Élite</span>
-                                <h2 class="titulo">'  . $row['nombre_titular']. ' </h2>
-                                <p>' .$row['introduccion'] . '</p>
-                                <div class="botones">
-                                    <a href="Noticias_elite.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>';  
-                                    if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
-                                        $rol = $_SESSION['id_rol'];
-                                    
-                                        if ($rol == 1){
-                                            echo '
-                                            <form method = "POST" class="" action="../PHP/borrar_titulares_noticias.php" onsubmit="return confirm(\'¿Estas seguro de eliminar este titular y noticia?\')">
-                                                <input type = "hidden" name="id_titular" value="' . $row['id_titular'] .'">
-                                                <button type = "submit" class="btn"> Eliminar</button>
-                                            </form>
-                                            ';
+                    while ($row = mysqli_fetch_assoc($noticias)) { // Bucle para mostrar las noticias que no esten en el carousel
+                        echo '
+                        <div class="container col-lg-6 col-md-6 mb-4 ">
+                            <div class="carta" data-aos="zoom-in-up" data-aos-duration="1000"> 
+                                <img class="clave" src="../titulares_noticias/'. $row['Imagen'] . '" class="d-block w-100" alt="...">
+                                <img class="logito" src="../../assets/img/portal_elite.webp"  alt="Logo del portafolio">
+                                <div class="texto-carta">
+                                    <span class="categoria">Élite</span>
+                                    <h2 class="titulo">'  . $row['nombre_titular']. ' </h2>
+                                    <p>' .$row['introduccion'] . '</p>
+                                    <div class="botones">
+                                        <a href="Noticias_elite.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>';  
+                                        if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
+                                            $rol = $_SESSION['id_rol'];
+                                        
+                                            if ($rol == 1){
+                                                echo '
+                                                <form method = "POST" class="" action="../PHP/borrar_titulares_noticias.php" onsubmit="return confirm(\'¿Estas seguro de eliminar este titular y noticia?\')">
+                                                    <input type = "hidden" name="id_titular" value="' . $row['id_titular'] .'">
+                                                    <button type = "submit" class="btn"> Eliminar</button>
+                                                </form>
+                                                ';
+                                            }
                                         }
-                                    }
-                    echo '</div> </div> </div> </div>';
+                        echo '</div> </div> </div> </div>';
+                    }
+                } else {
+                    echo '<p class="text-center"> No hay noticias para mostrar</p>';
                 }
         ?>
         </div>
     </section>
     <!--Pie de pagina-->
-    <footer class="footer" data-aos="fade-down" data-aos-duration="800">
+    <footer class="footer" data-aos="fade-up" data-aos-duration="600">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 text-center">
                     <img src="../../assets/img/noticias_elite.webp" class=" img-fluid mb-4" width="420px">
                 </div>
                 
-                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" data-aos="fade-down" data-aos-duration="800" >
+                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" data-aos="fade-up" data-aos-duration="600">
                     <h5 class="mb-3">Enlaces</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.php" class="text-white text-decoration-none"><i class="bi bi-house me-2"></i>INICIO</a></li>
+                        <li class="mb-2"><a href="../../index.php" class="text-white text-decoration-none"><i class="bi bi-house me-2"></i>INICIO</a></li>
                         <li class="mb-2"><a href="#Titulares" class="text-white text-decoration-none"><i class="bi bi-newspaper me-2"></i>NOTICIAS</a></li>
                         <?php
                             if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
@@ -419,7 +426,7 @@
                     </ul>
                 </div>
           
-                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" data-aos="fade-down" data-aos-duration="800" >
+                <div class="col-lg-2 col-md-4 col-6 mb-4 text-center" data-aos="fade-up" data-aos-duration="600" >
                     <h5 class="mb-3">Categorias</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="Titulares_corazon.php" class="text-white text-decoration-none"><i class="bi bi-heart me-2"></i>CORAZON</a></li>
@@ -430,9 +437,9 @@
                     </ul>
                 </div>
           
-                <div class="col-lg-2 col-md-4 mb-4 text-center" data-aos="fade-down" data-aos-duration="1200">
+                <div class="col-lg-2 col-md-4 mb-4 text-center" data-aos="fade-up" data-aos-duration="600">
                     <h5 class="mb-3">¡Visita nuestro canal oficial!</h5>
-                    <a href="https://discord.gg/WgHjZRWM" target="_blank" class="text-white btn facebook "> <i class="fab fa-discord "></i></a>                  
+                    <a href="https://discord.gg/By3qXUgV5P" target="_blank" class="text-white btn élite "> <i class="fab fa-discord "></i></a>                  
                 </div>
             </div>
         </div>

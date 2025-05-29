@@ -5,7 +5,7 @@
     if(isset($_SESSION['id_rol'])){ // Si un usuario elite tiene la sesion inciada le sera imposible acceder a esta pagina, a menos de que cierre la sesion
         $rol = $_SESSION['id_rol'];
         if($rol == 2) { 
-            header("Location: ../HTML+PHP/index.php");
+            header("Location: ../../index.php");
         }
     }
 
@@ -16,11 +16,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portal Noticias | Iniciar Sesion</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../assets/css/login.css">
     <link rel="stylesheet" href="../../assets/css/login_movil.css">
+    <link rel="icon" type="image/x-icon" href="../../assets/icons/portal_noticias.ico">
 
 
 </head>
@@ -126,27 +127,19 @@
 
                     
                     <div class="d-grid mb-2">
-                        <a type="submit" class="btn login-btn btn-lg text-white shadow-sm" href="index.php">
+                        <a type="submit" class="btn login-btn btn-lg text-white shadow-sm" href="../../index.php">
                             <i class="bi bi-box-arrow-in-right"></i>
                             <span>Mantenerse sin cuenta(De momento ;)</span>
                         </a>
                     </div>
 
                     <div class="text-center mt-4">
-                        <p class="text-muted mb-3 fw-bold">Visita nuestras redes sociales</p>
+                        <p class="text-muted mb-3 fw-bold">Visita nuestro canal oficial</p>
                         <!-- Botones de redes sociales que antes estaban arriba -->
                         <div class="social-buttons">
-                            <button class="social-btn facebook">
-                                <i class="bi bi-facebook fs-5"></i>
-                            </button>
-                          
-                            <button class="social-btn twitter">
-                                <i class="bi bi-twitter fs-5"></i>
-                            </button>
-                          
-                            <button class="social-btn instagram">
-                                <i class="bi bi-instagram fs-5"></i>
-                            </button>
+                            <a class="social-btn facebook" href="https://discord.gg/By3qXUgV5P">
+                                <i class="bi bi-discord fs-5"></i>
+                            </a>
                         </div>
                     </div>
                 </div>

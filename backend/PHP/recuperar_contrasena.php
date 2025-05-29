@@ -14,14 +14,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo '
             <script>
                 alert("Contraseña actualizada correctamente");
-                window.location.href="../HTML+PHP/index.php";
+                window.location.href="../../index.php";
             </script>
             ';   
         } else {
             echo '
             <script>
                 alert("Ups, ha ocurrido un error. Intentelo de nuevo");
-                window.location.href="../HTML+PHP/index.php";
+                window.location.href="../HTML+PHP/contraseña.php";
             </script>
             ';   
         }
@@ -29,6 +29,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         echo '
         <script>
             alert("El correo introducido no tiene una cuenta. Intentelo de nuevo con otro correo");
+            window.location.href="../HTML+PHP/contraseña.php";
+
         </script>
         ';
     }
