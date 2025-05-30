@@ -1,7 +1,7 @@
 <?php
 function enviar_notificacion_discord_principal($nombre_titular, $introduccion, $enlace, $id_categoria){
     $Referencia_discord = '';
-
+    // Añadir los enlaces que estan mencionados en el apartado de manual de usuario del documento
     switch($id_categoria){
         case 1: //Pertenece al bot de la categoria de corazon
             $Referencia_discord = "";
