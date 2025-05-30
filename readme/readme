@@ -75,3 +75,40 @@
     - Bases de datos con contenido
     - Host Funcionando Completamente
         Enlace  portal-noticias.infinityfreeapp.com
+    - He hecho que todas las consultas alojadas en la carpeta HTML + PHP esten ahora como funciones
+    
+
+
+
+# CONTENIDO DEL ARCHIVO
+#ASSETS
+    - En esta carpeta estan todos los recursos que he utilizado tanto estilos como logos e imagenes
+    
+    #CSS
+    - En esta carpeta estan todos los estilos que tiene la web
+
+    #icons
+    - En esta carpeta estan todos los logos que se utilizan en la web
+
+    #img
+    - En esta carpeta se encuentran las imagenes que tiene la pagina por defecto (Las que nunca cambian)
+
+    #img_noticias
+    - En esta carpeta se encuentran las imagenes que estan enlazadas con la base de datos
+
+#BACKEND
+    - Aqui se encuentra todo el codigo de la pagina que he utilizado(Tanto estructura como backend)
+
+    #HTML+PHP
+    - Aqui se encuentra tanto la estructura de la pagina como el codigo PHP utilizado para la misma
+
+    #BACKEND
+    - Aqui se encuentran todos los archivos backend para conectar la pagina web con la base de datos
+    - Tambien se encuentra el archivo para el bot de discord
+
+    #SQL
+    - En esta carpeta esta almacenado el codigo sql que he utilizado para la base de datos
+
+    # Readme
+    - En esta carpeta se encuentra un archivo readme que explica todas las actualizaciones del proyecto a lo largo de las entregas. Tambien muestra el contenido del proyecto
+    - Tambien hay un archivo txt en el que se encuentran los usuarios con sus contraseñas que estan almacenadas en la base de datos por si se quieren hacer pruebas. Pongo tambienn las contraseñas puesto que estan guardadas mediante encriptación

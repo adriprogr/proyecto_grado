@@ -87,11 +87,7 @@ form{
   background-color: black;
 }
 
-.btn-gray {
-  background-color: #6c757d;
-  border: none;
-  color: white;
-}
+
 
 
 /*Mas Noticias*/
@@ -159,26 +155,13 @@ form{
   justify-content: center;
 }
 /*Footer*/
-footer {
-  padding: 20px;
-  background: linear-gradient(to left, #861D00, #234D1C);
-}
-
-
-
-.footer-texto {
-  font-size: 1.5rem;
-  padding: 20px;
-  margin-bottom: 30px;
-  font-family: 'Quicksand', sans-serif;
-}
-
 
 .footer {
   background: linear-gradient(to left, #2c6c80, #0a6f0f);
   background-size: 400% 400%;
   animation: fondo 10s ease infinite;
   position: relative;
+  padding: 20px;
   color: white;
 }
 @keyframes fondo {
@@ -191,51 +174,6 @@ footer {
   100% {
      background-position: 0% 50%; 
     }
-}
-
-
-.social-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 25px;
-}
-
-.social-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.social-btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.facebook {
-  background: #1877F2;
-  color: white;
-}
-
-.twitter {
-  background: #1DA1F2;
-  color: white;
-}
-
-.google {
-  background: #DB4437;
-  color: white;
-}
-
-.instagram {
-  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-  color: white;
 }
 
 

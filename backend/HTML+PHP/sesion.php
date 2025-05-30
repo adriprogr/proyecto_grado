@@ -137,7 +137,7 @@
                         <p class="text-muted mb-3 fw-bold">Visita nuestro canal oficial</p>
                         <!-- Botones de redes sociales que antes estaban arriba -->
                         <div class="social-buttons">
-                            <a class="social-btn facebook" href="https://discord.gg/By3qXUgV5P">
+                            <a class="social-btn discord" href="https://discord.gg/By3qXUgV5P">
                                 <i class="bi bi-discord fs-5"></i>
                             </a>
                         </div>

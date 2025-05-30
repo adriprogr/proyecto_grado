@@ -213,24 +213,3 @@ body {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.facebook {
-    background: #1877F2;
-    color: white;
-}
-
-.twitter {
-    background: #1DA1F2;
-    color: white;
-}
-
-.google {
-    background: #DB4437;
-    color: white;
-}
-
-.instagram {
-    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-    color: white;
-}
-
-

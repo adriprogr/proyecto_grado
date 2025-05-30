@@ -254,7 +254,7 @@
             
                 <div class="col-lg-2 col-md-4 mb-4 text-center" data-aos="fade-up" data-aos-duration="600">
                     <h5 class="mb-3">¡Visita nuestro canal oficial!</h5>
-                    <a href="https://discord.gg/By3qXUgV5P" target="_blank" class="text-white btn facebook "> <i class="fab fa-discord "></i></a>                  
+                    <a href="https://discord.gg/By3qXUgV5P" target="_blank" class="text-white btn "> <i class="fab fa-discord "></i></a>                  
                 </div>
             </div>
         </div>
