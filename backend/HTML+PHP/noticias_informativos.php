@@ -153,10 +153,10 @@
         <h1 class="text-center">Mas noticias</h1>
         <div class="row">
             <?php
-                $consulta_final = "SELECT * FROM titulares WHERE id_categoria = 1 and id_titular != $id_titular ORDER BY RAND() LIMIT 3 ";
-                $resultado_normal = mysqli_query($conexion, $consulta_final);
+                $id_categoria = 2;
+                $random = noticias_random($conexion, $id_titular, $id_categoria);
 
-                while ($row = mysqli_fetch_assoc($resultado_normal)) { // Bucle para mostrar las noticias que no esten en el carousel
+                while ($row = mysqli_fetch_assoc($random)) { // Bucle para mostrar las noticias que no esten en el carousel
                     echo '
                     <div class="col-lg-4">
                         <div class="carta" data-aos="zoom-in-up" data-aos-duration="800"> 
@@ -167,7 +167,7 @@
                                 <h2 class="titulo">'  . $row['nombre_titular']. ' </h2>
                                 <p>' .$row['introduccion'] . '</p>
                                 <div class="botones">
-                                    <a href="Noticias_corazon.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>  
+                                    <a href="Noticias_informativos.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>  
                                 </div>
                             </div>
                         </div>

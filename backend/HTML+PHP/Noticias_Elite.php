@@ -153,7 +153,7 @@
         <h1 class="text-center">Mas noticias</h1>
         <div class="row">
             <?php
-                $id_categoria = 4;
+                $id_categoria = 5;
                 $random = noticias_random($conexion, $id_titular, $id_categoria);
 
                 while ($row = mysqli_fetch_assoc($random)) { // Bucle para mostrar las noticias que no esten en el carousel
