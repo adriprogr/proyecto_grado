@@ -53,57 +53,6 @@
  color: rgb(255, 255, 255);
  font-weight: 400;
  }
- .bloque {
-    position: relative;
-}
-
-.bloque button {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    font-size: 16px;
-    cursor: pointer;
-    color: white;
-    border-radius: 8px;
-    transition: 0.3s ease-in-out;
-}
-
-.bloque button:hover {
-    background: rgba(255, 255, 255, 0.3);
-    color: black;
-}
-
-.bloquecito {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 140px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    z-index: 100;
-    overflow: hidden;
-    opacity: 0;
-    border-radius: 8px;
-    transform: translateY(10px);
-}
-
-.bloque:hover .bloquecito {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.bloquecito a {
-    color: black;
-    padding: 12px 15px;
-    display: block;
-    text-decoration: none;
-    font-size: 14px;
-    transition: 0.3s ease;
-}
-
-.bloquecito a:hover {
-    background-color: #07855d;
-    color: white;
-}
 
 
  /*¿Quienes Somos?*/
