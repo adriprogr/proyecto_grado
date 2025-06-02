@@ -372,7 +372,7 @@
 
                 <div class="col-lg-2 col-md-4 mb-4 text-center" data-aos="fade-down" data-aos-duration="1200"> <!-- Cuarta columna -->
                     <h5 class="mb-3">¡Visita nuestro canal oficial!</h5>
-                    <a href="https://discord.gg/WgHjZRWM" target="_blank" class="text-white btn  "> 
+                    <a href="https://discord.gg/By3qXUgV5P" target="_blank" class="text-white btn  "> 
                         <i class="fab fa-discord "></i>
                     </a>                  
                 </div>
