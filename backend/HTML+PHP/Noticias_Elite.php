@@ -195,7 +195,7 @@
                     <h5 class="mb-3">Enlaces</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="../../index.php" class="text-white text-decoration-none"><i class="bi bi-house me-2"></i>INICIO</a></li>
-                        <li class="mb-2"><a href="Titulares_delicias.php" class="text-white text-decoration-none"><i class="bi bi-newspaper me-2"></i>NOTICIAS</a></li>
+                        <li class="mb-2"><a href="Titulares_Elite.php" class="text-white text-decoration-none"><i class="bi bi-newspaper me-2"></i>NOTICIAS</a></li>
                         <?php
                             if(isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_rol'])){
                                 $rol = $_SESSION['id_rol'];
