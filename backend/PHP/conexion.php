@@ -1,10 +1,10 @@
 <?php
- 
-    // Conexion por localhost
+// Conexion por localhost
     $servidor = 'localhost';
     $usuario = 'root';
     $contrasena = '';
     $base_datos = 'proyecto_grado';
+    
     
     $conexion = new mysqli($servidor, $usuario, $contrasena, $base_datos);
 
@@ -13,11 +13,12 @@
     if ($conexion-> connect_error) {
         die ("Error en la conexion: " . $conexion->connect_error);
     }
-// Conexion mediante el dominio a traves de infinityfree.
-   // $servidor = 'sql201.infinityfree.com';
-   // $usuario = 'if0_39069094';
-    //$contrasena = 'xd1Cn9rToOH';
-    //$base_datos = 'if0_39069094_proyecto_grado';
+    
+ // Conexion mediante el dominio a traves de infinityfree.
+    //$servidor = 'sql200.infinityfree.com';
+    //$usuario = 'if0_39112688';
+    //$contrasena = 'y8twAA6dCUy5H';
+    //$base_datos = 'if0_39112688_proyecto_grado';
    
 
 ?>
