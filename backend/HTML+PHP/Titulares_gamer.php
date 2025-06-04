@@ -253,7 +253,7 @@
                                     
                                     if ($rol == 1){
                                         echo '
-                                        <form method = "POST" class="" action="../PHP/borrar_titulares_noticias_titulares_noticias.php" onsubmit="return confirm(\'¿Estas seguro de eliminar este titular y noticia?\')">
+                                        <form method = "POST" class="" action="../PHP/borrar_titulares_noticias.php" onsubmit="return confirm(\'¿Estas seguro de eliminar este titular y noticia?\')">
                                             <input type = "hidden" name="id_titular" value="' . $row['id_titular'] .'">
                                             <button type = "submit" class="btn"> Eliminar</button>
                                         </form>
