@@ -313,8 +313,7 @@
        <?php
             $id_categoria = 3;
             $noticias = mas_noticias($conexion, $id_categoria);
-
-
+            if(mysqli_num_rows($noticias) > 0){
                 while ($row = mysqli_fetch_assoc($noticias)) {// Bucle para mostrar las noticias que no esten en el carousel
                     echo '
                     <div class="col-lg-6 col-md-6 mb-4">
@@ -343,6 +342,9 @@
                                     }
                     echo '</div> </div> </div> </div>';
                 }
+            } else {
+                echo '<p class="text-center"> No hay noticias para mostrar</p>';
+            }
             
         ?>
         </div>

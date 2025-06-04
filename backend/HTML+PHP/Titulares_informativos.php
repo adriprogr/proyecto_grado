@@ -207,7 +207,7 @@
                                             </div>
 
                                             <!-- Vale tanto para noticias como titulares -->
-                                            <input type="hidden" name="id_categoria" value="2"> <!-- El valor 1 hace referencia a la categoria corazon de la base de datos -->
+                                            <input type="hidden" name="id_categoria" value="2"> <!-- El valor 2 hace referencia a la categoria informativos de la base de datos -->
 
                                             <input type="submit">
                                         </form>

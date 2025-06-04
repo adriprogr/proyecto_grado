@@ -113,8 +113,8 @@
             </div>
 
             <div class="imagenes d-flex flex-column col-lg-6" data-aos="zoom-out-down" data-aos-duration="1000" >
-                <img class="img-fluid" src="assets/img/prueba1.webp" width="400x" alt="">
-                <img class="imagen_clave img-fluid" src="assets/img/prueba2.webp" width="370px" height="200px" alt="" >
+                <img class="img-fluid" src="assets/img/papa.webp" width="400x" alt="">
+                <img class="imagen_clave img-fluid" src="assets/img/dragon.webp" width="370px" height="200px" alt="" >
             </div>
             
         </div>

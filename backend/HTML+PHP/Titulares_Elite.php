@@ -209,7 +209,7 @@
                                             </div>
                                         
                                             <!-- Vale tanto para noticias como titulares -->
-                                            <input type="hidden" name="id_categoria" value="5"> <!-- El valor 2 hace referencia a la categoria élite de la base de datos -->
+                                            <input type="hidden" name="id_categoria" value="5"> <!-- El valor 5 hace referencia a la categoria élite de la base de datos -->
                                             
                                             <input type="submit">
                                         </form>

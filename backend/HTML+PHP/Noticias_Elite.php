@@ -155,24 +155,27 @@
             <?php
                 $id_categoria = 5;
                 $random = noticias_random($conexion, $id_titular, $id_categoria);
-
-                while ($row = mysqli_fetch_assoc($random)) { // Bucle para mostrar las noticias que no esten en el carousel
-                    echo '
-                    <div class="col-lg-4">
-                        <div class="carta" data-aos="zoom-in-up" data-aos-duration="800"> 
-                            <img class="clave" src="'. $row['Imagen'] . '" class="d-block w-100" alt="...">
-                            <img class="logito" src="../../assets/img/portal_elite.webp"  alt="Logo del portafolio">
-                            <div class="texto-carta ">
-                                <span class="categoria">ELITE</span>
-                                <h2 class="titulo">'  . $row['nombre_titular']. ' </h2>
-                                <p>' .$row['introduccion'] . '</p>
-                                <div class="botones">
-                                    <a href="Noticias_elite.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>  
+                if(mysqli_num_rows($random) > 0){
+                    while ($row = mysqli_fetch_assoc($random)) { 
+                        echo '
+                        <div class="col-lg-4">
+                            <div class="carta" data-aos="zoom-in-up" data-aos-duration="800"> 
+                                <img class="clave" src="'. $row['Imagen'] . '" class="d-block w-100" alt="...">
+                                <img class="logito" src="../../assets/img/portal_elite.webp"  alt="Logo del portafolio">
+                                <div class="texto-carta ">
+                                    <span class="categoria">ELITE</span>
+                                    <h2 class="titulo">'  . $row['nombre_titular']. ' </h2>
+                                    <p>' .$row['introduccion'] . '</p>
+                                    <div class="botones">
+                                        <a href="Noticias_elite.php?id_titular=' . $row['id_titular'] . '" class="btn">Me interesa</a>  
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    ';
+                        ';
+                    }
+                } else {
+                    echo '<p class="text-center"> No hay noticias para mostrar</p>';
                 }
             ?>
         </div>
