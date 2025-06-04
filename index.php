@@ -301,16 +301,16 @@
     </section>
 
     <!-- Pie de página -->
-    <footer class="footer" data-aos="fade-down" data-aos-duration="1000">
+    <footer class="footer" data-aos="fade-up" data-aos-duration="1000">
         <div class="container">
             <div class="row"> <!-- Fila que separara el footer en cuatro columnas -->
-                <div class="col-lg-4 text-center" data-aos="fade-down" data-aos-duration="1200">  <!-- Primera columna -->
+                <div class="col-lg-4 text-center">  <!-- Primera columna -->
                     <img src="assets/img/portal_noticias.webp"class="img-fluid mb-4" width="200px;">
                 </div>
                 
-                <div class=" col-lg-2 col-md-4 col-6 text-center "> <!-- Segunda columna -->
-                    <h5 class="mb-3" data-aos="fade-down" data-aos-duration="1200">Enlaces</h5>
-                    <ul class="list-unstyled" data-aos="fade-down" data-aos-duration="1200">
+                <div class=" col-lg-2 col-md-4 col-6 text-center " data-aos="fade-up" data-aos-duration="1000"> <!-- Segunda columna -->
+                    <h5 class="mb-3">Enlaces</h5>
+                    <ul class="list-unstyled">
                         <li class="mb-2"><a href="#inicio" class="text-white text-decoration-none"><i class="bi bi-house me-2"></i>INICIO</a></li>
                         <li class="mb-2"><a href="#categorias" class="text-white text-decoration-none"><i class="bi bi-newspaper me-2"></i>NOTICIAS</a></li>
                          <?php
@@ -349,9 +349,9 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-2 col-md-4 col-6 text-center" > <!-- Tercera columna -->
-                    <h5 class="mb-3" data-aos="fade-down" data-aos-duration="1200">Categorias</h5>
-                    <ul class="list-unstyled" data-aos="fade-down" data-aos-duration="1200">
+                <div class="col-lg-2 col-md-4 col-6 text-center"  data-aos="fade-up" data-aos-duration="1000" > <!-- Tercera columna -->
+                    <h5 class="mb-3">Categorias</h5>
+                    <ul class="list-unstyled">
                         <li class="mb-2"><a href="backend/HTML+PHP/Titulares_corazon.php" class="text-white text-decoration-none"><i class="bi bi-heart me-2"></i>CORAZON</a></li>
                         <li class="mb-2"><a href="backend/HTML+PHP/Titulares_informativos.php" class="text-white text-decoration-none"><i class="bi bi-newspaper me-2"></i>INFORMATIVOS</a></li>
                         <li class="mb-2"><a href="backend/HTML+PHP/Titulares_delicias.php" class="text-white text-decoration-none"><i class="bi bi-egg-fried me-2"></i>DELICIAS</a></li>
@@ -370,7 +370,7 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-2 col-md-4 mb-4 text-center" data-aos="fade-down" data-aos-duration="1200"> <!-- Cuarta columna -->
+                <div class="col-lg-2 col-md-4 mb-4 text-center"  data-aos="fade-up" data-aos-duration="1000"> <!-- Cuarta columna -->
                     <h5 class="mb-3">¡Visita nuestro canal oficial!</h5>
                     <a href="https://discord.gg/By3qXUgV5P" target="_blank" class="text-white btn  "> 
                         <i class="fab fa-discord "></i>
